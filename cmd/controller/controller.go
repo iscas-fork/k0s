@@ -378,20 +378,6 @@ func (c *command) start(ctx context.Context) error {
 	}
 	clusterComponents.Add(ctx, cfgReconciler)
 
-	if !slices.Contains(c.DisableComponents, constant.HelmComponentName) {
-		helmSaver, err := controller.NewManifestsSaver("helm", c.K0sVars.DataDir)
-		if err != nil {
-			return fmt.Errorf("failed to initialize helm manifests saver: %w", err)
-		}
-		clusterComponents.Add(ctx, controller.NewCRD(helmSaver, []string{"helm"}))
-		clusterComponents.Add(ctx, controller.NewExtensionsController(
-			helmSaver,
-			c.K0sVars,
-			adminClientFactory,
-			leaderElector,
-		))
-	}
-
 	if !slices.Contains(c.DisableComponents, constant.AutopilotComponentName) {
 		logrus.Debug("starting manifest saver")
 		manifestsSaver, err := controller.NewManifestsSaver("autopilot", c.K0sVars.DataDir)
