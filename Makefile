@@ -112,9 +112,9 @@ $(K0S_GO_BUILD_CACHE):
 go.sum: go.mod .k0sbuild.docker-image.k0s
 	$(GO) mod tidy && touch -c -- '$@'
 
-controllergen_targets += pkg/apis/helm/v1beta1/.controller-gen.stamp
-pkg/apis/helm/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/helm/v1beta1/ -maxdepth 1 -type f -name \*.go)
-pkg/apis/helm/v1beta1/.controller-gen.stamp: gen_output_dir = helm
+#controllergen_targets += pkg/apis/helm/v1beta1/.controller-gen.stamp
+#pkg/apis/helm/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/helm/v1beta1/ -maxdepth 1 -type f -name \*.go)
+#pkg/apis/helm/v1beta1/.controller-gen.stamp: gen_output_dir = helm
 
 controllergen_targets += pkg/apis/k0s/v1beta1/.controller-gen.stamp
 pkg/apis/k0s/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/k0s/v1beta1/ -maxdepth 1 -type f -name \*.go)
@@ -137,7 +137,7 @@ pkg/apis/%/.controller-gen.stamp: .k0sbuild.docker-image.k0s hack/tools/boilerpl
 	  && mv -f -- "$$gendir"/zz_generated.deepcopy.go '$(dir $@).'
 	touch -- '$@'
 
-clientset_input_dirs := pkg/apis/autopilot/v1beta2 pkg/apis/k0s/v1beta1 pkg/apis/helm/v1beta1
+clientset_input_dirs := pkg/apis/autopilot/v1beta2 pkg/apis/k0s/v1beta1
 codegen_targets += pkg/client/clientset/.client-gen.stamp
 pkg/client/clientset/.client-gen.stamp: $(shell find $(clientset_input_dirs) -type f -name \*.go -not -name \*_test.go -not -name zz_\*)
 pkg/client/clientset/.client-gen.stamp: .k0sbuild.docker-image.k0s hack/tools/boilerplate.go.txt embedded-bins/Makefile.variables
@@ -161,7 +161,6 @@ static/zz_generated_assets.go: $(shell find static/manifests/calico static/manif
 static/zz_generated_assets.go: .k0sbuild.docker-image.k0s hack/tools/Makefile.variables
 	CGO_ENABLED=0 $(GO) run github.com/kevinburke/go-bindata/go-bindata@v$(go-bindata_version) \
 	  -o '$@' -pkg static -prefix static \
-	  static/manifests/helm/CustomResourceDefinition/... \
 	  static/manifests/v1beta1/CustomResourceDefinition/... \
 	  static/manifests/autopilot/CustomResourceDefinition/... \
 	  static/manifests/calico/... \
