@@ -17,7 +17,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 
@@ -47,7 +46,6 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"github.com/spf13/cobra/doc"
 )
 
 func NewRootCmd() *cobra.Command {
@@ -103,7 +101,6 @@ func NewRootCmd() *cobra.Command {
 
 	cmd.AddCommand(newCompletionCmd())
 	cmd.AddCommand(newDefaultConfigCmd()) // hidden+deprecated
-	cmd.AddCommand(newDocsCmd())
 
 	cmd.DisableAutoGenTag = true
 	longDesc = "k0s - The zero friction Kubernetes - https://k0sproject.io"
@@ -112,24 +109,6 @@ func NewRootCmd() *cobra.Command {
 	}
 	cmd.Long = longDesc
 	return cmd
-}
-
-func newDocsCmd() *cobra.Command {
-	return &cobra.Command{
-		Use:       "docs <markdown|man>",
-		Short:     "Generate k0s command documentation",
-		ValidArgs: []string{"markdown", "man"},
-		Args:      cobra.ExactValidArgs(1),
-		RunE: func(cmd *cobra.Command, args []string) error {
-			switch args[0] {
-			case "markdown":
-				return doc.GenMarkdownTree(NewRootCmd(), "./docs/cli")
-			case "man":
-				return doc.GenManTree(NewRootCmd(), &doc.GenManHeader{Title: "k0s", Section: "1"}, "./man")
-			}
-			return fmt.Errorf("invalid format")
-		},
-	}
 }
 
 func newDefaultConfigCmd() *cobra.Command {
