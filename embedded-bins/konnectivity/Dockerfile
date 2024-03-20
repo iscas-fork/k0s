@@ -14,6 +14,8 @@ ARG TARGET_OS \
   BUILD_GO_LDFLAGS \
   BUILD_GO_LDFLAGS_EXTRA
 
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+
 RUN go install github.com/golang/mock/mockgen@v1.4.4 && \
     go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 && \
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2 && \ 

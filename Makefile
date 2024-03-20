@@ -71,16 +71,17 @@ LD_FLAGS += $(BUILD_GO_LDFLAGS_EXTRA)
 
 GOLANG_IMAGE ?= $(golang_buildimage)
 K0S_GO_BUILD_CACHE_VOLUME_PATH=$(realpath $(K0S_GO_BUILD_CACHE))
-GO_ENV ?= docker run --rm \
-	-v '$(K0S_GO_BUILD_CACHE_VOLUME_PATH)':/run/k0s-build \
-	-v '$(CURDIR)':/go/src/github.com/k0sproject/k0s \
-	-w /go/src/github.com/k0sproject/k0s \
-	-e GOOS \
-	-e CGO_ENABLED \
-	-e CGO_CFLAGS \
-	-e GOARCH \
-	--user $(BUILD_UID):$(BUILD_GID) \
-	-- '$(shell cat .k0sbuild.docker-image.k0s)'
+GO_ENV ?= 
+#GO_ENV ?= docker run --rm \
+#	-v '$(K0S_GO_BUILD_CACHE_VOLUME_PATH)':/run/k0s-build \
+#	-v '$(CURDIR)':/go/src/github.com/k0sproject/k0s \
+#	-w /go/src/github.com/k0sproject/k0s \
+#	-e GOOS \
+#	-e CGO_ENABLED \
+#	-e CGO_CFLAGS \
+#	-e GOARCH \
+#	--user $(BUILD_UID):$(BUILD_GID) \
+#	-- '$(shell cat .k0sbuild.docker-image.k0s)'
 GO ?= $(GO_ENV) go
 
 # https://www.gnu.org/software/make/manual/make.html#index-spaces_002c-in-variable-values

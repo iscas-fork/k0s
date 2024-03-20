@@ -13,6 +13,8 @@ RUN mkdir -p $GOPATH/src/github.com/containerd/containerd
 RUN git -c advice.detachedHead=false clone -b v$VERSION --depth=1 https://github.com/containerd/containerd.git $GOPATH/src/github.com/containerd/containerd
 WORKDIR /go/src/github.com/containerd/containerd
 
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+
 ARG TARGET_OS \
   BUILD_GO_TAGS \
   BUILD_GO_CGO_ENABLED \

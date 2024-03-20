@@ -10,6 +10,8 @@ ARG VERSION
 RUN curl -L https://www.netfilter.org/projects/iptables/files/iptables-$VERSION.tar.xz \
 	| tar -C / -Jx
 
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+
 ARG TARGET_OS
 RUN cd /iptables-$VERSION && \
   CFLAGS="-Os" ./configure --sysconfdir=/etc --enable-static --disable-shared --without-kernel --disable-devel

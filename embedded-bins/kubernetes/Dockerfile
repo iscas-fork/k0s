@@ -17,6 +17,9 @@ ARG TARGET_OS \
   BUILD_GO_LDFLAGS_EXTRA \
   KUBERNETES_BINS
 
+
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct
+
 RUN \
   set -ex; \
   export GOPATH=/go; \
