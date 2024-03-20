@@ -17,42 +17,12 @@ limitations under the License.
 package ctr
 
 import (
-	"os"
 	"path"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/pkg/config"
-
-	"github.com/containerd/containerd/cmd/ctr/app"
-	"github.com/spf13/cobra"
 	"github.com/urfave/cli"
 )
 
 const pathEnv = "PATH"
-
-func NewCtrCommand() *cobra.Command {
-	containerdCtr := app.New()
-
-	cmd := &cobra.Command{
-		Use:                containerdCtr.Name,
-		Short:              "containerd CLI",
-		Long:               containerdCtr.Description,
-		DisableFlagParsing: true,
-		RunE: func(cmd *cobra.Command, _ []string) error {
-			opts, err := config.GetCmdOpts(cmd)
-			if err != nil {
-				return err
-			}
-			setDefaultValues(opts.K0sVars.RunDir, containerdCtr.Flags)
-			args := extractCtrCommand(os.Args)
-			newPath := dir.PathListJoin(opts.K0sVars.BinDir, os.Getenv(pathEnv))
-			os.Setenv(pathEnv, newPath)
-			return containerdCtr.Run(args)
-		},
-	}
-
-	return cmd
-}
 
 func setDefaultValues(runDir string, flags []cli.Flag) {
 	for i, flag := range flags {

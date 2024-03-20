@@ -15,6 +15,8 @@ ARG TARGET_OS \
   BUILD_GO_LDFLAGS \
   BUILD_GO_LDFLAGS_EXTRA
 
+RUN go env -w GOPROXY=https://goproxy.cn
+
 RUN CGO_ENABLED=${BUILD_GO_CGO_ENABLED} \
     go build \
         ${BUILD_GO_FLAGS} \
