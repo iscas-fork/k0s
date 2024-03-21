@@ -20,8 +20,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"github.com/containerd/containerd/cmd/ctr/app"
 	"github.com/spf13/cobra"

@@ -21,7 +21,7 @@ import (
 	"testing"
 
 	"github.com/avast/retry-go"
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	"github.com/stretchr/testify/suite"
 )
 

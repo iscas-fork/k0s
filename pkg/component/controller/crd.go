@@ -20,8 +20,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/static"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/static"
 )
 
 var _ manager.Component = (*CRD)(nil)

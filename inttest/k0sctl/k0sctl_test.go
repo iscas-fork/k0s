@@ -34,7 +34,7 @@ import (
 	"golang.org/x/exp/slices"
 	"sigs.k8s.io/yaml"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 )
 
 type K0sctlSuite struct {
@@ -82,7 +82,7 @@ func (s *K0sctlSuite) downloadK0sctl(version string) {
 
 	s.T().Logf("Downloading k0sctl %s", version)
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("https://github.com/k0sproject/k0sctl/releases/download/%s/%s", version, k0sctlFilename()), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("https://github.com/iscas-fork/k0sctl/releases/download/%s/%s", version, k0sctlFilename()), nil)
 	s.Require().NoError(err)
 	resp, err := http.DefaultClient.Do(req)
 	s.Require().NoError(err)

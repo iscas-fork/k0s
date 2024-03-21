@@ -19,7 +19,7 @@ package hostnameoverride
 import (
 	"testing"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 
 	"github.com/stretchr/testify/suite"
 )

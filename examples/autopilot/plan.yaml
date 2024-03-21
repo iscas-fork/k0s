@@ -25,7 +25,7 @@ spec:
         platforms:
           linux-amd64:
             # This just needs to point to a HTTP endpoint
-            url: https://github.com/k0sproject/k0s/releases/download/v1.24.4+k0s.0/k0s-v1.24.4+k0s.0-amd64
+            url: https://github.com/iscas-fork/k0s/releases/download/v1.24.4+k0s.0/k0s-v1.24.4+k0s.0-amd64
 
             # The SHA256 can be omitted if required
             sha256: c94fb7da760cbdde5ef90e0183cf9c2dd32be139d82e64c3f6ab83d614049383

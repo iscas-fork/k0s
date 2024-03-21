@@ -21,9 +21,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo"
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/pkg/constant"
 
 	"github.com/logrusorgru/aurora/v3"
 	"github.com/spf13/cobra"

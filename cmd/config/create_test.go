@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/k0sproject/k0s/cmd/config"
+	"github.com/iscas-fork/k0s/cmd/config"
 )
 
 func TestCreateCmd_Images(t *testing.T) {

@@ -16,7 +16,7 @@ limitations under the License.
 
 package v1beta1
 
-import "github.com/k0sproject/k0s/pkg/constant"
+import "github.com/iscas-fork/k0s/pkg/constant"
 
 // SystemUser defines the user to use for each component
 type SystemUser struct {

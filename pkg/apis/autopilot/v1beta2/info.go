@@ -15,7 +15,7 @@
 package v1beta2
 
 import (
-	autopilot "github.com/k0sproject/k0s/pkg/apis/autopilot"
+	autopilot "github.com/iscas-fork/k0s/pkg/apis/autopilot"
 
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"sigs.k8s.io/controller-runtime/pkg/scheme"

@@ -21,8 +21,8 @@ import (
 	"net/http"
 	"time"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 

@@ -28,10 +28,10 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/archive"
-	"github.com/k0sproject/k0s/internal/pkg/file"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/internal/pkg/archive"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/config"
 )
 
 // Manager hold configuration for particular backup-restore process

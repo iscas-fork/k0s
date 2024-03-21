@@ -19,13 +19,13 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/k0sproject/k0s/pkg/client/clientset"
-	autopilotv1beta2 "github.com/k0sproject/k0s/pkg/client/clientset/typed/autopilot/v1beta2"
-	fakeautopilotv1beta2 "github.com/k0sproject/k0s/pkg/client/clientset/typed/autopilot/v1beta2/fake"
-	helmv1beta1 "github.com/k0sproject/k0s/pkg/client/clientset/typed/helm/v1beta1"
-	fakehelmv1beta1 "github.com/k0sproject/k0s/pkg/client/clientset/typed/helm/v1beta1/fake"
-	k0sv1beta1 "github.com/k0sproject/k0s/pkg/client/clientset/typed/k0s/v1beta1"
-	fakek0sv1beta1 "github.com/k0sproject/k0s/pkg/client/clientset/typed/k0s/v1beta1/fake"
+	clientset "github.com/iscas-fork/k0s/pkg/client/clientset"
+	autopilotv1beta2 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/autopilot/v1beta2"
+	fakeautopilotv1beta2 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/autopilot/v1beta2/fake"
+	helmv1beta1 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/helm/v1beta1"
+	fakehelmv1beta1 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/helm/v1beta1/fake"
+	k0sv1beta1 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/k0s/v1beta1"
+	fakek0sv1beta1 "github.com/iscas-fork/k0s/pkg/client/clientset/typed/k0s/v1beta1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

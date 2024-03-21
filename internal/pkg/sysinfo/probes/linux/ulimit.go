@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"syscall"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
 )
 
 func (l *LinuxProbes) AssertProcessMaxFileDescriptors(min uint64) {

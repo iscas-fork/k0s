@@ -22,9 +22,9 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/fields"

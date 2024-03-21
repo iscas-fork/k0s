@@ -24,7 +24,7 @@ import (
 	"path"
 
 	"github.com/cavaliergopher/grab/v3"
-	ts "github.com/k0sproject/k0s/inttest/toolsuite"
+	ts "github.com/iscas-fork/k0s/inttest/toolsuite"
 )
 
 const (

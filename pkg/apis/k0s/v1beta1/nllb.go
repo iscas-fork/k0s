@@ -19,7 +19,7 @@ package v1beta1
 import (
 	"encoding/json"
 
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/constant"
 
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/validation"

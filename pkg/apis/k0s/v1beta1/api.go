@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/k0sproject/k0s/internal/pkg/iface"
-	"github.com/k0sproject/k0s/internal/pkg/stringslice"
+	"github.com/iscas-fork/k0s/internal/pkg/iface"
+	"github.com/iscas-fork/k0s/internal/pkg/stringslice"
 
 	"k8s.io/apimachinery/pkg/util/validation/field"
 

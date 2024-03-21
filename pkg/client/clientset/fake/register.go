@@ -19,9 +19,9 @@ limitations under the License.
 package fake
 
 import (
-	autopilotv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	helmv1beta1 "github.com/k0sproject/k0s/pkg/apis/helm/v1beta1"
-	k0sv1beta1 "github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	autopilotv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	helmv1beta1 "github.com/iscas-fork/k0s/pkg/apis/helm/v1beta1"
+	k0sv1beta1 "github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

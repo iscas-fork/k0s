@@ -19,11 +19,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/inttest/common"
-	aptest "github.com/k0sproject/k0s/inttest/common/autopilot"
+	"github.com/iscas-fork/k0s/inttest/common"
+	aptest "github.com/iscas-fork/k0s/inttest/common/autopilot"
 
-	apconst "github.com/k0sproject/k0s/pkg/autopilot/constant"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apconst "github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	"github.com/stretchr/testify/suite"
 )

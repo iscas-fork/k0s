@@ -21,7 +21,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
 	"github.com/stretchr/testify/require"
 )
 

@@ -10,7 +10,7 @@ With k0sctl, you can create multi-node clusters in a manner that is automatic an
 
 ## Prerequisites
 
-You can execute k0sctl on any system that supports the Go language. Pre-compiled k0sctl binaries are available on the [k0sctl releases page](https://github.com/k0sproject/k0sctl)).
+You can execute k0sctl on any system that supports the Go language. Pre-compiled k0sctl binaries are available on the [k0sctl releases page](https://github.com/iscas-fork/k0sctl)).
 
 **Note**: For target host prerequisites information, refer to the [k0s System Requirements](system-requirements.md).
 
@@ -18,7 +18,7 @@ You can execute k0sctl on any system that supports the Go language. Pre-compiled
 
 ### 1. Install k0sctl tool
 
-k0sctl is a single binary, the instructions for downloading and installing of which are available in the [k0sctl github repository](https://github.com/k0sproject/k0sctl#installation).
+k0sctl is a single binary, the instructions for downloading and installing of which are available in the [k0sctl github repository](https://github.com/iscas-fork/k0sctl#installation).
 
 ### 2. Configure the cluster
 
@@ -51,7 +51,7 @@ k0sctl is a single binary, the instructions for downloading and installing of wh
 
 2. Provide each host with a valid IP address that is reachable by k0ctl, and the connection details for an SSH connection.
 
- **Note**: Refer to the [k0sctl documentation](https://github.com/k0sproject/k0sctl#configuration-file-spec-fields) for k0sctl configuration specifications.
+ **Note**: Refer to the [k0sctl documentation](https://github.com/iscas-fork/k0sctl#configuration-file-spec-fields) for k0sctl configuration specifications.
 
 ### 3. Deploy the cluster
 

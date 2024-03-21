@@ -2,7 +2,7 @@
 
 You can install k0s in an environment with restricted Internet access. Airgap installation requires an image bundle, which contains all the needed container images. There are two options to get the image bundle:
 
-- Use a ready-made image bundle, which is created for each k0s release. It can be downloaded from the [releases page](https://github.com/k0sproject/k0s/releases/latest).
+- Use a ready-made image bundle, which is created for each k0s release. It can be downloaded from the [releases page](https://github.com/iscas-fork/k0s/releases/latest).
 - Create your own image bundle. In this case, you can easily customize the bundle to also include container images, which are not used by default in k0s.
 
 ## Prerequisites
@@ -48,7 +48,7 @@ ctr --namespace k8s.io \
 
 ## 2a. Sync the bundle file with the airgapped machine (locally)
 
-Copy the `bundle_file` you created in the previous step or downloaded from the [releases page](https://github.com/k0sproject/k0s/releases/latest) to the target machine into the `images` directory in the k0s data directory. Copy the bundle only to the worker nodes. Controller nodes don't use it.
+Copy the `bundle_file` you created in the previous step or downloaded from the [releases page](https://github.com/iscas-fork/k0s/releases/latest) to the target machine into the `images` directory in the k0s data directory. Copy the bundle only to the worker nodes. Controller nodes don't use it.
 
 ```shell
 # mkdir -p /var/lib/k0s/images

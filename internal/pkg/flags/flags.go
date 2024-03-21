@@ -19,7 +19,7 @@ package flags
 import (
 	"strings"
 
-	"github.com/k0sproject/k0s/internal/pkg/stringmap"
+	"github.com/iscas-fork/k0s/internal/pkg/stringmap"
 )
 
 // Split splits arbitrary set of flags into StringMap struct

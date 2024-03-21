@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/component/status"
-	"github.com/k0sproject/k0s/pkg/config"
-	"github.com/k0sproject/k0s/pkg/token"
+	"github.com/iscas-fork/k0s/pkg/component/status"
+	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/token"
 
 	"k8s.io/apimachinery/pkg/util/wait"
 	"k8s.io/client-go/util/retry"

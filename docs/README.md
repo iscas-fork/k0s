@@ -18,7 +18,7 @@ In September 2022 we made a human error while creating some build automation scr
 
 Before that mishap we had 4776 stargazers, making k0s one of the most popular Kubernetes distro out there.
 
-**So if you are reading this, and have not yet starred [k0s repo](https://github.com/k0sproject/k0s/) we would highly appreciate the :star: to get our numbers closer to what they used to be.**
+**So if you are reading this, and have not yet starred [k0s repo](https://github.com/iscas-fork/k0s/) we would highly appreciate the :star: to get our numbers closer to what they used to be.**
 
 ## Key Features
 
@@ -53,7 +53,7 @@ We welcome your help in building k0s! If you are interested, we invite you to
 check out the [Contributing Guide] and the [Code of Conduct].
 
 [Lens Forums]: https://forums.k8slens.dev/
-[GitHub Issues]: https://github.com/k0sproject/k0s/issues
+[GitHub Issues]: https://github.com/iscas-fork/k0s/issues
 [Contributing Guide]: https://docs.k0sproject.io/stable/contributors/overview/
 [Code of Conduct]:https://docs.k0sproject.io/stable/contributors/CODE_OF_CONDUCT/
 

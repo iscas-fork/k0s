@@ -22,10 +22,10 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/constant"
 )
 
 // SystemRBAC implements system RBAC reconciler

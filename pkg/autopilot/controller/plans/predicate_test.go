@@ -17,8 +17,8 @@ package plans
 import (
 	"testing"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	"github.com/stretchr/testify/assert"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"

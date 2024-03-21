@@ -17,12 +17,12 @@ package k0s
 import (
 	"crypto/sha256"
 
-	apcomm "github.com/k0sproject/k0s/pkg/autopilot/common"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigcomm "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/common"
-	apsigpred "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/common/predicate"
-	apdl "github.com/k0sproject/k0s/pkg/autopilot/download"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apcomm "github.com/iscas-fork/k0s/pkg/autopilot/common"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigcomm "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/common"
+	apsigpred "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/common/predicate"
+	apdl "github.com/iscas-fork/k0s/pkg/autopilot/download"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	"github.com/sirupsen/logrus"
 	cr "sigs.k8s.io/controller-runtime"

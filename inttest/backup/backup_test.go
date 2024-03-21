@@ -27,7 +27,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -165,7 +165,7 @@ func (s *BackupSuite) VerifyFileSystemRestore() error {
 	}
 	defer ssh.Disconnect()
 
-	// Checking for containerd should be enough given https://github.com/k0sproject/k0s/issues/2420
+	// Checking for containerd should be enough given https://github.com/iscas-fork/k0s/issues/2420
 	// containerd may take a bit to start so we want to retry a few times
 	checkPID := func() bool {
 		_, err = ssh.ExecWithOutput(s.Context(), "/bin/pidof /var/lib/k0s/bin/containerd")

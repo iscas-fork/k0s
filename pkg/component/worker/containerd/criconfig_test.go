@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	srvconfig "github.com/containerd/containerd/services/server/config"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )

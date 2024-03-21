@@ -28,11 +28,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/net"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/worker"
-	workerconfig "github.com/k0sproject/k0s/pkg/component/worker/config"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/internal/pkg/net"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/worker"
+	workerconfig "github.com/iscas-fork/k0s/pkg/component/worker/config"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"k8s.io/client-go/tools/clientcmd"
 	clientcmdapi "k8s.io/client-go/tools/clientcmd/api"

@@ -25,19 +25,19 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/internal/pkg/stringmap"
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/machineid"
-	"github.com/k0sproject/k0s/internal/pkg/users"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/assets"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/component/prober"
-	"github.com/k0sproject/k0s/pkg/config"
-	"github.com/k0sproject/k0s/pkg/constant"
-	"github.com/k0sproject/k0s/pkg/k0scontext"
-	kubeutil "github.com/k0sproject/k0s/pkg/kubernetes"
-	"github.com/k0sproject/k0s/pkg/supervisor"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/stringmap"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/machineid"
+	"github.com/iscas-fork/k0s/internal/pkg/users"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/assets"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/component/prober"
+	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/k0scontext"
+	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/supervisor"
 )
 
 // Konnectivity implements the component interface for konnectivity server

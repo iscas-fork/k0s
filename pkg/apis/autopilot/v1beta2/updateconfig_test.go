@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/autopilot/channels"
+	"github.com/iscas-fork/k0s/pkg/autopilot/channels"
 	"github.com/stretchr/testify/require"
 )
 

@@ -16,7 +16,7 @@ limitations under the License.
 
 package probes
 
-import "github.com/k0sproject/k0s/internal/pkg/sysinfo/machineid"
+import "github.com/iscas-fork/k0s/internal/pkg/sysinfo/machineid"
 
 // RequireMachineID requires a Machine ID
 func RequireMachineID(parent ParentProbe) {

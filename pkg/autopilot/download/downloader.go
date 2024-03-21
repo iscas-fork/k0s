@@ -21,7 +21,7 @@ import (
 	"hash"
 
 	"github.com/cavaliergopher/grab/v3"
-	"github.com/k0sproject/k0s/pkg/autopilot/build"
+	"github.com/iscas-fork/k0s/pkg/autopilot/build"
 	"github.com/sirupsen/logrus"
 )
 

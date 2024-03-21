@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/machineid"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/machineid"
 	"github.com/sirupsen/logrus"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"

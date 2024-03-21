@@ -27,13 +27,13 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	"github.com/k0sproject/k0s/pkg/autopilot/controller/signal/k0s"
-	uc "github.com/k0sproject/k0s/pkg/autopilot/updater"
-	"github.com/k0sproject/k0s/pkg/build"
-	"github.com/k0sproject/k0s/pkg/component/status"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	"github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/k0s"
+	uc "github.com/iscas-fork/k0s/pkg/autopilot/updater"
+	"github.com/iscas-fork/k0s/pkg/build"
+	"github.com/iscas-fork/k0s/pkg/component/status"
 )
 
 type updater interface {

@@ -23,7 +23,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	"github.com/stretchr/testify/suite"
 	k8s "k8s.io/client-go/kubernetes"
 )
@@ -136,7 +136,7 @@ func (s *customPortsSuite) TestControllerJoinsWithCustomPort() {
 	s.T().Log("waiting to get logs from pods")
 	s.Require().NoError(common.WaitForPodLogs(s.Context(), kc, "kube-system"))
 
-	// https://github.com/k0sproject/k0s/issues/1202
+	// https://github.com/iscas-fork/k0s/issues/1202
 	s.T().Run("kubeconfigIncludesExternalAddress", func(t *testing.T) {
 		ssh, err := s.SSH(s.Context(), s.ControllerNode(0))
 		s.Require().NoError(err)

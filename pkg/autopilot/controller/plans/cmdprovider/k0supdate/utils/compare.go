@@ -15,9 +15,9 @@
 package utils
 
 import (
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 )
 
 // isSignalDataSameCommand determines if the `PlanCommand` and the command specified in the signal data represent

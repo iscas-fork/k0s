@@ -15,9 +15,9 @@
 package k0supdate
 
 import (
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	"github.com/k0sproject/k0s/pkg/kubernetes"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	"github.com/iscas-fork/k0s/pkg/kubernetes"
 
 	"github.com/sirupsen/logrus"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

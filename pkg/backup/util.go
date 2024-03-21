@@ -28,7 +28,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
 )
 
 const timeStampLayout = "2006-01-02T15_04_05_000Z"

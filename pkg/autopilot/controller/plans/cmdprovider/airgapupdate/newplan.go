@@ -17,9 +17,9 @@ package airgapupdate
 import (
 	"context"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	"github.com/k0sproject/k0s/pkg/autopilot/checks"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	"github.com/iscas-fork/k0s/pkg/autopilot/checks"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 )
 
 // NewPlan handles the provider state 'newplan'

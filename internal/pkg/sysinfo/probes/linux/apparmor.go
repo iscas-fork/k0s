@@ -22,9 +22,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
 )
 
 func checkAppArmor() string {

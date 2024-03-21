@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
-	"github.com/k0sproject/k0s/inttest/common"
-	"github.com/k0sproject/k0s/pkg/apis/helm/v1beta1"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/pkg/apis/helm/v1beta1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/wait"

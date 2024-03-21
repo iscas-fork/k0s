@@ -17,7 +17,7 @@ limitations under the License.
 package cleanup
 
 import (
-	"github.com/k0sproject/k0s/pkg/install"
+	"github.com/iscas-fork/k0s/pkg/install"
 	"github.com/sirupsen/logrus"
 )
 

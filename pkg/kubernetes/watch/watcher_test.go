@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

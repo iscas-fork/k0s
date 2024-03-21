@@ -19,17 +19,17 @@ import (
 	"os"
 	"time"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	uc "github.com/k0sproject/k0s/pkg/autopilot/channels"
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
-	apcore "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	uc "github.com/iscas-fork/k0s/pkg/autopilot/channels"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
+	apcore "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/k0sproject/version"
+	"github.com/iscas-fork/version"
 )
 
 type periodicUpdater struct {

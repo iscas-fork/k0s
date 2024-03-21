@@ -47,15 +47,15 @@ SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct || date -u +%s)
 BUILD_DATE_FMT = %Y-%m-%dT%H:%M:%SZ
 BUILD_DATE ?= $(shell date -u -d "@$(SOURCE_DATE_EPOCH)" "+$(BUILD_DATE_FMT)" 2>/dev/null || date -u -r "$(SOURCE_DATE_EPOCH)" "+$(BUILD_DATE_FMT)" 2>/dev/null || date -u "+$(BUILD_DATE_FMT)")
 
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.Version=$(VERSION)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.RuncVersion=$(runc_version)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.ContainerdVersion=$(containerd_version)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.KubernetesVersion=$(kubernetes_version)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.KineVersion=$(kine_version)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.EtcdVersion=$(etcd_version)
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/build.KonnectivityVersion=$(konnectivity_version)
-LD_FLAGS += -X "github.com/k0sproject/k0s/pkg/build.EulaNotice=$(EULA_NOTICE)"
-LD_FLAGS += -X github.com/k0sproject/k0s/pkg/telemetry.segmentToken=$(SEGMENT_TOKEN)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.Version=$(VERSION)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.RuncVersion=$(runc_version)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.ContainerdVersion=$(containerd_version)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KubernetesVersion=$(kubernetes_version)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KineVersion=$(kine_version)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.EtcdVersion=$(etcd_version)
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KonnectivityVersion=$(konnectivity_version)
+LD_FLAGS += -X "github.com/iscas-fork/k0s/pkg/build.EulaNotice=$(EULA_NOTICE)"
+LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/telemetry.segmentToken=$(SEGMENT_TOKEN)
 LD_FLAGS += -X k8s.io/component-base/version.gitVersion=v$(kubernetes_version)
 LD_FLAGS += -X k8s.io/component-base/version.gitMajor=$(shell echo '$(kubernetes_version)' | cut -d. -f1)
 LD_FLAGS += -X k8s.io/component-base/version.gitMinor=$(shell echo '$(kubernetes_version)' | cut -d. -f2)
@@ -74,8 +74,8 @@ K0S_GO_BUILD_CACHE_VOLUME_PATH=$(realpath $(K0S_GO_BUILD_CACHE))
 GO_ENV ?= 
 #GO_ENV ?= docker run --rm \
 #	-v '$(K0S_GO_BUILD_CACHE_VOLUME_PATH)':/run/k0s-build \
-#	-v '$(CURDIR)':/go/src/github.com/k0sproject/k0s \
-#	-w /go/src/github.com/k0sproject/k0s \
+#	-v '$(CURDIR)':/go/src/github.com/iscas-fork/k0s \
+#	-w /go/src/github.com/iscas-fork/k0s \
 #	-e GOOS \
 #	-e CGO_ENABLED \
 #	-e CGO_CFLAGS \
@@ -113,9 +113,9 @@ $(K0S_GO_BUILD_CACHE):
 go.sum: go.mod .k0sbuild.docker-image.k0s
 	$(GO) mod tidy && touch -c -- '$@'
 
-codegen_targets += pkg/apis/helm/v1beta1/.controller-gen.stamp
-pkg/apis/helm/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/helm/v1beta1/ -maxdepth 1 -type f -name \*.go)
-pkg/apis/helm/v1beta1/.controller-gen.stamp: gen_output_dir = helm
+#codegen_targets += pkg/apis/helm/v1beta1/.controller-gen.stamp
+#pkg/apis/helm/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/helm/v1beta1/ -maxdepth 1 -type f -name \*.go)
+#pkg/apis/helm/v1beta1/.controller-gen.stamp: gen_output_dir = helm
 
 codegen_targets += pkg/apis/k0s/v1beta1/.controller-gen.stamp
 pkg/apis/k0s/v1beta1/.controller-gen.stamp: $(shell find pkg/apis/k0s/v1beta1/ -maxdepth 1 -type f -name \*.go)
@@ -135,7 +135,8 @@ pkg/apis/%/.controller-gen.stamp: .k0sbuild.docker-image.k0s hack/tools/boilerpl
 	  object:headerFile=hack/tools/boilerplate.go.txt
 	touch -- '$@'
 
-clientset_input_dirs := pkg/apis/autopilot/v1beta2 pkg/apis/k0s/v1beta1 pkg/apis/helm/v1beta1
+clientset_input_dirs := pkg/apis/autopilot/v1beta2 pkg/apis/k0s/v1beta1
+#clientset_input_dirs := pkg/apis/autopilot/v1beta2 pkg/apis/k0s/v1beta1 pkg/apis/helm/v1beta1
 codegen_targets += pkg/client/clientset/.client-gen.stamp
 pkg/client/clientset/.client-gen.stamp: $(shell find $(clientset_input_dirs) -type f -name \*.go -not -name \*_test.go -not -name zz_\*)
 pkg/client/clientset/.client-gen.stamp: .k0sbuild.docker-image.k0s hack/tools/boilerplate.go.txt embedded-bins/Makefile.variables
@@ -143,11 +144,11 @@ pkg/client/clientset/.client-gen.stamp: .k0sbuild.docker-image.k0s hack/tools/bo
 	CGO_ENABLED=0 $(GO) run k8s.io/code-generator/cmd/client-gen@v$(kubernetes_version:1.%=0.%) \
 	  --go-header-file=hack/tools/boilerplate.go.txt \
 	  --input-base='' \
-	  --input=$(subst $(space),$(comma),$(clientset_input_dirs:%=github.com/k0sproject/k0s/%)) \
-	  --output-package=github.com/k0sproject/k0s/$(patsubst %/,%,$(dir $(patsubst %/,%,$(dir $@)))) \
+	  --input=$(subst $(space),$(comma),$(clientset_input_dirs:%=github.com/iscas-fork/k0s/%)) \
+	  --output-package=github.com/iscas-fork/k0s/$(patsubst %/,%,$(dir $(patsubst %/,%,$(dir $@)))) \
 	  --clientset-name=$(notdir $(patsubst %/,%,$(dir $@))) \
 	  --output-base=. \
-	  --trim-path-prefix=github.com/k0sproject/k0s
+	  --trim-path-prefix=github.com/iscas-fork/k0s
 	touch -- '$@'
 
 codegen_targets += static/zz_generated_assets.go

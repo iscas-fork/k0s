@@ -32,10 +32,10 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	clientset "k8s.io/client-go/kubernetes"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/controller/leaderelector"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	kubeutil "github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/controller/leaderelector"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
 	certificates "k8s.io/kubernetes/pkg/apis/certificates"
 )
 

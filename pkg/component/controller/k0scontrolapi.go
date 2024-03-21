@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/config"
-	"github.com/k0sproject/k0s/pkg/supervisor"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/supervisor"
 )
 
 // K0SControlAPI implements the k0s control API component

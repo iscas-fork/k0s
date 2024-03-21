@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/k0sproject/k0s/internal/pkg/net"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/internal/pkg/net"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 
 	"k8s.io/apimachinery/pkg/util/validation"
 	"k8s.io/apimachinery/pkg/util/validation/field"

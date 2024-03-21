@@ -24,17 +24,17 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"github.com/sirupsen/logrus"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/constant"
-	k8sutil "github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/constant"
+	k8sutil "github.com/iscas-fork/k0s/pkg/kubernetes"
 )
 
 const metricServerTemplate = `

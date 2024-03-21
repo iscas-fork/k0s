@@ -23,9 +23,9 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/applier"
-	"github.com/k0sproject/k0s/pkg/component/controller"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/applier"
+	"github.com/iscas-fork/k0s/pkg/component/controller"
+	"github.com/iscas-fork/k0s/pkg/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

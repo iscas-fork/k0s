@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync"
 
-	cfgClient "github.com/k0sproject/k0s/pkg/client/clientset/typed/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/constant"
+	cfgClient "github.com/iscas-fork/k0s/pkg/client/clientset/typed/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/constant"
 
 	"k8s.io/client-go/discovery"
 	"k8s.io/client-go/discovery/cached/memory"

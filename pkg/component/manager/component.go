@@ -19,7 +19,7 @@ package manager
 import (
 	"context"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 )
 
 // Component defines the lifecycle of managed components.

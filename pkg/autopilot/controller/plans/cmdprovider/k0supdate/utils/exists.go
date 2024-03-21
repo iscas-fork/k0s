@@ -17,8 +17,8 @@ package utils
 import (
 	"context"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	"k8s.io/apimachinery/pkg/types"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

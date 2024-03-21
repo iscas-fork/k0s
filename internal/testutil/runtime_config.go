@@ -21,8 +21,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"github.com/stretchr/testify/require"
 )

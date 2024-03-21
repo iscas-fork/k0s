@@ -18,9 +18,9 @@ import (
 	"context"
 	"fmt"
 
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigag "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/airgap"
-	apsigk0s "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/k0s"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigag "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/airgap"
+	apsigk0s "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/k0s"
 
 	"github.com/sirupsen/logrus"
 	crman "sigs.k8s.io/controller-runtime/pkg/manager"

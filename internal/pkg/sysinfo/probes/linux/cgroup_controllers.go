@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
 )
 
 func (c *CgroupsProbes) RequireControllers(controllerNames ...string) {

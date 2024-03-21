@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	ts "github.com/k0sproject/k0s/inttest/toolsuite"
-	tsops "github.com/k0sproject/k0s/inttest/toolsuite/operations"
+	ts "github.com/iscas-fork/k0s/inttest/toolsuite"
+	tsops "github.com/iscas-fork/k0s/inttest/toolsuite/operations"
 
 	"github.com/stretchr/testify/suite"
 )

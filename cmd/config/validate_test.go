@@ -22,7 +22,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/stretchr/testify/assert"
 	"sigs.k8s.io/yaml"
 )

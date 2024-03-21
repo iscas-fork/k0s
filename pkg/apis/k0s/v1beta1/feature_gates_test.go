@@ -19,7 +19,7 @@ package v1beta1
 import (
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/stringmap"
+	"github.com/iscas-fork/k0s/internal/pkg/stringmap"
 	"github.com/stretchr/testify/require"
 )
 

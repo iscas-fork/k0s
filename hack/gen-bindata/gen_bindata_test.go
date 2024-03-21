@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/testutil"
+	"github.com/iscas-fork/k0s/internal/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

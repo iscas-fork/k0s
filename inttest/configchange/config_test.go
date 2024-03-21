@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	cfgClient "github.com/k0sproject/k0s/pkg/client/clientset/typed/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	cfgClient "github.com/iscas-fork/k0s/pkg/client/clientset/typed/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/constant"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -33,7 +33,7 @@ import (
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	"github.com/stretchr/testify/suite"
 )
 

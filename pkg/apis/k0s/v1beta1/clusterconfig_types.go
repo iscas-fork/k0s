@@ -25,7 +25,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/k0sproject/k0s/internal/pkg/strictyaml"
+	"github.com/iscas-fork/k0s/internal/pkg/strictyaml"
 	"k8s.io/apimachinery/pkg/util/validation/field"
 )
 

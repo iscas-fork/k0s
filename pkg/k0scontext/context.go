@@ -28,7 +28,7 @@ package k0scontext
 import (
 	"context"
 
-	k0sapi "github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	k0sapi "github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 )
 
 // Key represents a string key used for storing and retrieving values in a context.

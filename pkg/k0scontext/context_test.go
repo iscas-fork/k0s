@@ -20,7 +20,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/k0scontext"
+	"github.com/iscas-fork/k0s/pkg/k0scontext"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -17,7 +17,7 @@ package client
 import (
 	"sync"
 
-	apclient "github.com/k0sproject/k0s/pkg/client/clientset"
+	apclient "github.com/iscas-fork/k0s/pkg/client/clientset"
 	extclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1"
 
 	"k8s.io/client-go/kubernetes"

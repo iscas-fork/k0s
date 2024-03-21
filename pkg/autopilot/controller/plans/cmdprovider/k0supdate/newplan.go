@@ -17,12 +17,12 @@ package k0supdate
 import (
 	"context"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	"github.com/k0sproject/k0s/pkg/autopilot/checks"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	appkd "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/discovery"
-	appku "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/utils"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	"github.com/iscas-fork/k0s/pkg/autopilot/checks"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	appkd "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/discovery"
+	appku "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/utils"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	v1 "k8s.io/api/core/v1"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

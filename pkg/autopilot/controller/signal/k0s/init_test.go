@@ -17,7 +17,7 @@ package k0s
 import (
 	"testing"
 
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	"github.com/stretchr/testify/assert"
 )

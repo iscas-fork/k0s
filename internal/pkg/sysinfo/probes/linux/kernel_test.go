@@ -23,9 +23,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
 
-	test_sysinfo "github.com/k0sproject/k0s/internal/testutil/sysinfo"
+	test_sysinfo "github.com/iscas-fork/k0s/internal/testutil/sysinfo"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

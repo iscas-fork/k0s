@@ -15,8 +15,8 @@
 package k0s
 
 import (
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigpred "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/common/predicate"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigpred "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/common/predicate"
 
 	"github.com/sirupsen/logrus"
 	crman "sigs.k8s.io/controller-runtime/pkg/manager"

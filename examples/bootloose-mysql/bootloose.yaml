@@ -13,7 +13,7 @@ machines:
       source: /lib/modules
       destination: /lib/modules
     - type: bind
-      source: /home/jussi/go/src/github.com/k0sproject/k0s
+      source: /home/jussi/go/src/github.com/iscas-fork/k0s
       destination: /root/k0s
     - type: volume
       destination: /var/lib/k0s

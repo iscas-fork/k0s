@@ -21,7 +21,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/k0sproject/k0s/cmd"
+	"github.com/iscas-fork/k0s/cmd"
 	"github.com/spf13/pflag"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/exp/slices"

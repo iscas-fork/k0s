@@ -21,9 +21,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/k0sproject/k0s/pkg/cleanup"
-	"github.com/k0sproject/k0s/pkg/component/status"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/cleanup"
+	"github.com/iscas-fork/k0s/pkg/component/status"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

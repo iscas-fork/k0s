@@ -18,13 +18,13 @@ import (
 	"context"
 	"fmt"
 
-	autopilot "github.com/k0sproject/k0s/pkg/apis/autopilot"
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	apclient "github.com/k0sproject/k0s/pkg/client/clientset"
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	autopilot "github.com/iscas-fork/k0s/pkg/apis/autopilot"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	apclient "github.com/iscas-fork/k0s/pkg/client/clientset"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 
 	extensionsv1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	extensionsclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1"

@@ -29,9 +29,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/constant"
-	"github.com/k0sproject/k0s/pkg/k0scontext"
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/k0scontext"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 
 	appsv1 "k8s.io/api/apps/v1"
 	coordinationv1 "k8s.io/api/coordination/v1"

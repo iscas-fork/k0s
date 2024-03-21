@@ -17,7 +17,7 @@ limitations under the License.
 package kubeconfig
 
 import (
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"github.com/spf13/cobra"
 )

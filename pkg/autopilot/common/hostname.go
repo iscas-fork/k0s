@@ -17,7 +17,7 @@ package common
 import (
 	"os"
 
-	"github.com/k0sproject/k0s/pkg/node"
+	"github.com/iscas-fork/k0s/pkg/node"
 )
 
 const (

@@ -27,8 +27,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/iface"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/internal/pkg/iface"
+	"github.com/iscas-fork/k0s/pkg/constant"
 )
 
 // supported storage types

@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
 	"github.com/stretchr/testify/assert"
 	"sigs.k8s.io/yaml"
 )

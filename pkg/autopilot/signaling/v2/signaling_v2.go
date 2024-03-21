@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/k0sproject/k0s/pkg/autopilot/signaling"
+	"github.com/iscas-fork/k0s/pkg/autopilot/signaling"
 )
 
 const (

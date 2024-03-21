@@ -18,8 +18,8 @@ import (
 	"context"
 	"fmt"
 
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	"github.com/sirupsen/logrus"
 	cr "sigs.k8s.io/controller-runtime"

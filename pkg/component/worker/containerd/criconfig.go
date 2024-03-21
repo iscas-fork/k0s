@@ -25,7 +25,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/mesosphere/toml-merge/pkg/patch"
 	"github.com/pelletier/go-toml"
 	"github.com/sirupsen/logrus"

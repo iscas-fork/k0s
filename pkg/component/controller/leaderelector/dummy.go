@@ -19,7 +19,7 @@ package leaderelector
 import (
 	"context"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
 )
 
 type Dummy struct {

@@ -21,9 +21,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/k0sproject/k0s/inttest/common"
-	"github.com/k0sproject/k0s/pkg/airgap"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/pkg/airgap"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/fields"

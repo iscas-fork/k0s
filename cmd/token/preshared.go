@@ -30,9 +30,9 @@ import (
 	"k8s.io/client-go/testing"
 	"sigs.k8s.io/yaml"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
-	"github.com/k0sproject/k0s/pkg/config"
-	"github.com/k0sproject/k0s/pkg/token"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/token"
 )
 
 func preSharedCmd() *cobra.Command {

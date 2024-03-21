@@ -17,7 +17,7 @@ package utils
 import (
 	"fmt"
 
-	apcomm "github.com/k0sproject/k0s/pkg/autopilot/common"
+	apcomm "github.com/iscas-fork/k0s/pkg/autopilot/common"
 
 	v1 "k8s.io/api/core/v1"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

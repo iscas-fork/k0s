@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/k0sproject/k0s/internal/pkg/stringmap"
+	"github.com/iscas-fork/k0s/internal/pkg/stringmap"
 )
 
 var _ Validateable = (*FeatureGates)(nil)

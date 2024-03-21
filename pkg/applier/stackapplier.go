@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/avast/retry-go"
-	"github.com/k0sproject/k0s/pkg/debounce"
-	"github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/debounce"
+	"github.com/iscas-fork/k0s/pkg/kubernetes"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/sirupsen/logrus"

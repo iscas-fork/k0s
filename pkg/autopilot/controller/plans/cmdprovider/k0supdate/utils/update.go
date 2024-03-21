@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"time"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

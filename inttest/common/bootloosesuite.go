@@ -41,11 +41,11 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
-	apclient "github.com/k0sproject/k0s/pkg/client/clientset"
-	"github.com/k0sproject/k0s/pkg/constant"
-	"github.com/k0sproject/k0s/pkg/k0scontext"
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
+	apclient "github.com/iscas-fork/k0s/pkg/client/clientset"
+	"github.com/iscas-fork/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/k0scontext"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 	extclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1"
 
 	corev1 "k8s.io/api/core/v1"
@@ -56,8 +56,8 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"sigs.k8s.io/yaml"
 
-	"github.com/k0sproject/bootloose/pkg/cluster"
-	"github.com/k0sproject/bootloose/pkg/config"
+	"github.com/iscas-fork/bootloose/pkg/cluster"
+	"github.com/iscas-fork/bootloose/pkg/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"

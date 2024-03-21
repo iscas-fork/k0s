@@ -1,4 +1,4 @@
-module github.com/k0sproject/k0s
+module github.com/iscas-fork/k0s
 
 go 1.21.0
 
@@ -28,9 +28,9 @@ require (
 	github.com/go-playground/validator/v10 v10.17.0
 	github.com/google/go-cmp v0.6.0
 	github.com/hashicorp/terraform-exec v0.20.0
-	github.com/k0sproject/bootloose v0.7.2
-	github.com/k0sproject/dig v0.2.0
-	github.com/k0sproject/version v0.6.0
+	github.com/iscas-fork/bootloose v0.7.2
+	github.com/iscas-fork/dig v0.2.0
+	github.com/iscas-fork/version v0.6.0
 	github.com/kardianos/service v1.2.2
 	github.com/logrusorgru/aurora/v3 v3.0.0
 	github.com/mesosphere/toml-merge v0.2.0
@@ -63,7 +63,6 @@ require (
 	golang.org/x/sys v0.16.0
 	golang.org/x/tools v0.17.0
 	google.golang.org/grpc v1.60.1
-	helm.sh/helm/v3 v3.14.1
 )
 
 // Kubernetes

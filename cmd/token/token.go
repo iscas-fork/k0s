@@ -19,7 +19,7 @@ package token
 import (
 	"fmt"
 
-	"github.com/k0sproject/k0s/pkg/token"
+	"github.com/iscas-fork/k0s/pkg/token"
 
 	"github.com/spf13/cobra"
 )

@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	k0snet "github.com/k0sproject/k0s/internal/pkg/net"
+	k0snet "github.com/iscas-fork/k0s/internal/pkg/net"
 	"go.uber.org/multierr"
 
 	"k8s.io/client-go/util/jsonpath"

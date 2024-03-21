@@ -15,7 +15,7 @@
 package common
 
 import (
-	"github.com/k0sproject/k0s/pkg/telemetry"
+	"github.com/iscas-fork/k0s/pkg/telemetry"
 	"github.com/segmentio/analytics-go"
 )
 

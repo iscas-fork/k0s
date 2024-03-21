@@ -19,7 +19,7 @@ package install
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/config"
 )
 
 func installWorkerCmd(installFlags *installFlags) *cobra.Command {

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/constant"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"sigs.k8s.io/yaml"

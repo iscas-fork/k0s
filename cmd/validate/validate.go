@@ -17,7 +17,7 @@ limitations under the License.
 package validate
 
 import (
-	configcmd "github.com/k0sproject/k0s/cmd/config"
+	configcmd "github.com/iscas-fork/k0s/cmd/config"
 
 	"github.com/spf13/cobra"
 )

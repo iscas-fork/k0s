@@ -4,7 +4,7 @@ site_author: Mirantis, Inc.
 site_url: https://docs.k0sproject.io
 docs_dir: docs/
 repo_name: GitHub
-repo_url: https://github.com/k0sproject/k0s
+repo_url: https://github.com/iscas-fork/k0s
 copyright:
   Copyright &copy; 2021 <a href="https://mirantis.com/">Mirantis Inc.</a>
   - All rights reserved.
@@ -139,7 +139,7 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/k0sproject/k0s
+      link: https://github.com/iscas-fork/k0s
       name: k0s on GitHub
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/k0sproject

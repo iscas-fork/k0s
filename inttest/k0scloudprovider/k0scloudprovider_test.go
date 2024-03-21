@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/k0sproject/k0s/inttest/common"
-	"github.com/k0sproject/k0s/pkg/k0scloudprovider"
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/pkg/k0scloudprovider"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

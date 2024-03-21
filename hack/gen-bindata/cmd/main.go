@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"os"
 
-	genbindata "github.com/k0sproject/k0s/hack/gen-bindata"
+	genbindata "github.com/iscas-fork/k0s/hack/gen-bindata"
 )
 
 func main() {

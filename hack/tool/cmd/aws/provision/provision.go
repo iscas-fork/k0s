@@ -22,7 +22,7 @@ import (
 	"os/exec"
 	"tool/pkg/constant"
 
-	k0sctlcmd "github.com/k0sproject/k0sctl/cmd"
+	k0sctlcmd "github.com/iscas-fork/k0sctl/cmd"
 )
 
 type ProvisionConfig struct {

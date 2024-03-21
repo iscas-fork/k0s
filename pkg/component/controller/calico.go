@@ -25,16 +25,16 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/config"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/constant"
 
-	"github.com/k0sproject/k0s/static"
+	"github.com/iscas-fork/k0s/static"
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
 )
 
 // Dummy checks so we catch easily if we miss some interface implementation

@@ -15,12 +15,12 @@
 package testutil
 
 import (
-	apclient "github.com/k0sproject/k0s/pkg/client/clientset"
-	apclientfake "github.com/k0sproject/k0s/pkg/client/clientset/fake"
+	apclient "github.com/iscas-fork/k0s/pkg/client/clientset"
+	apclientfake "github.com/iscas-fork/k0s/pkg/client/clientset/fake"
 	extclientfake "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/fake"
 	extclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1"
 
-	"github.com/k0sproject/k0s/pkg/autopilot/client"
+	"github.com/iscas-fork/k0s/pkg/autopilot/client"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/fake"

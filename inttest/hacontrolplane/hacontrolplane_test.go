@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -66,7 +66,7 @@ func (s *HAControlplaneSuite) makeNodeLeave(executeOnControllerIdx int, peerAddr
 }
 
 func (s *HAControlplaneSuite) TestDeregistration() {
-	// Verify that k0s return failure (https://github.com/k0sproject/k0s/issues/790)
+	// Verify that k0s return failure (https://github.com/iscas-fork/k0s/issues/790)
 	sshC0, err := s.SSH(s.Context(), s.ControllerNode(0))
 	s.Require().NoError(err)
 	_, err = sshC0.ExecWithOutput(s.Context(), "/usr/local/bin/k0s etcd member-list")

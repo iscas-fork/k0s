@@ -10,7 +10,7 @@ Install mike: https://github.com/jimporter/mike#installation
 ## Adding A New link to the Navigation
 
 - All docs must live under the `docs` directory (I.E., changes to the main `README.md` are not reflected in the website).
-- Add a new link under `nav` in the main [mkdocs.yml](https://github.com/k0sproject/k0s/blob/main/mkdocs.yml) file:
+- Add a new link under `nav` in the main [mkdocs.yml](https://github.com/iscas-fork/k0s/blob/main/mkdocs.yml) file:
 
 ```yaml
 nav:
@@ -36,8 +36,8 @@ nav:
       - Testing: contributors/testing.md
 ```
 
-- Once your changes are pushed to `main`, the "Publish Docs" jos will start running: https://github.com/k0sproject/k0s/actions?query=workflow%3A%22Publish+docs+via+GitHub+Pages%22
-- You should see the deployment outcome in the `gh-pages` deployment page: https://github.com/k0sproject/k0s/deployments/activity_log?environment=github-pages
+- Once your changes are pushed to `main`, the "Publish Docs" jos will start running: https://github.com/iscas-fork/k0s/actions?query=workflow%3A%22Publish+docs+via+GitHub+Pages%22
+- You should see the deployment outcome in the `gh-pages` deployment page: https://github.com/iscas-fork/k0s/deployments/activity_log?environment=github-pages
 
 ## Testing docs locally
 

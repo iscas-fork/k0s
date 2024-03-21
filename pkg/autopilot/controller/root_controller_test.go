@@ -19,10 +19,10 @@ import (
 	"testing"
 	"time"
 
-	aptu "github.com/k0sproject/k0s/internal/autopilot/testutil"
-	"github.com/k0sproject/k0s/internal/testutil"
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
-	aproot "github.com/k0sproject/k0s/pkg/autopilot/controller/root"
+	aptu "github.com/iscas-fork/k0s/internal/autopilot/testutil"
+	"github.com/iscas-fork/k0s/internal/testutil"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
+	aproot "github.com/iscas-fork/k0s/pkg/autopilot/controller/root"
 
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"

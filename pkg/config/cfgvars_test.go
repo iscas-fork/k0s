@@ -20,8 +20,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/constant"
 	"github.com/spf13/pflag"
 	"github.com/stretchr/testify/assert"
 )

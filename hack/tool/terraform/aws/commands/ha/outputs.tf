@@ -66,9 +66,9 @@ output "k0s_update_version" {
 }
 
 output "k0s_update_binary_url" {
-  value = length(module.s3updateserver) > 0 ? module.s3updateserver[0].k0s_update_binary_url : format("https://github.com/k0sproject/k0s/releases/download/%s/k0s-%s-amd64", urlencode(var.k0s_update_version), var.k0s_update_version)
+  value = length(module.s3updateserver) > 0 ? module.s3updateserver[0].k0s_update_binary_url : format("https://github.com/iscas-fork/k0s/releases/download/%s/k0s-%s-amd64", urlencode(var.k0s_update_version), var.k0s_update_version)
 }
 
 output "k0s_update_airgap_bundle_url" {
-  value = length(module.s3updateserver) > 0 ? module.s3updateserver[0].k0s_update_airgap_bundle_url : format("https://github.com/k0sproject/k0s/releases/download/%s/k0s-airgap-bundle-%s-amd64", urlencode(var.k0s_update_version), var.k0s_update_version)
+  value = length(module.s3updateserver) > 0 ? module.s3updateserver[0].k0s_update_airgap_bundle_url : format("https://github.com/iscas-fork/k0s/releases/download/%s/k0s-airgap-bundle-%s-amd64", urlencode(var.k0s_update_version), var.k0s_update_version)
 }

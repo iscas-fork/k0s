@@ -17,7 +17,7 @@ fi
 
 while IFS=',' read -ra VERSION; do
   for ver in "${VERSION[@]}"; do
-    curl -L -o k0s-${ver} https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-${ARCH}
+    curl -L -o k0s-${ver} https://github.com/iscas-fork/k0s/releases/download/${ver}/k0s-${ver}-${ARCH}
     chmod +x k0s-${ver}
 
     while IFS=',' read -ra TESTARR; do

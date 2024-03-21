@@ -19,7 +19,7 @@ import (
 	"strconv"
 	"time"
 
-	uc "github.com/k0sproject/k0s/pkg/autopilot/channels"
+	uc "github.com/iscas-fork/k0s/pkg/autopilot/channels"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 

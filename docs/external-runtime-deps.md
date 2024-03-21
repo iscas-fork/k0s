@@ -210,7 +210,7 @@ fails, in case NSS is used.
   [kubernetes/kubernetes#96115], contained in Kubernetes 1.21.8 ([5b13c8f68d4])
   and 1.22.0 ([d45ba645a8f]).
 
-[#1046]: https://github.com/k0sproject/k0s/pull/1046
+[#1046]: https://github.com/iscas-fork/k0s/pull/1046
 [kubernetes/kubernetes#96115]: https://github.com/kubernetes/kubernetes/pull/96115
 [5b13c8f68d4]: https://github.com/kubernetes/kubernetes/commit/5b13c8f68d48740261fa4c96ecb0a504982088a8
 [d45ba645a8f]: https://github.com/kubernetes/kubernetes/commit/d45ba645a8f7b288284890a051c73bbae717da4b

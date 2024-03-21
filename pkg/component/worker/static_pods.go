@@ -31,8 +31,8 @@ import (
 	"time"
 
 	"github.com/avast/retry-go"
-	mw "github.com/k0sproject/k0s/internal/pkg/middleware"
-	"github.com/k0sproject/k0s/pkg/component/manager"
+	mw "github.com/iscas-fork/k0s/internal/pkg/middleware"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
 	"github.com/sirupsen/logrus"
 
 	corev1 "k8s.io/api/core/v1"

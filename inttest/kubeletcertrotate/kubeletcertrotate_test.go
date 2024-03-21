@@ -20,13 +20,13 @@ import (
 	"testing"
 	"time"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apconst "github.com/k0sproject/k0s/pkg/autopilot/constant"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	"github.com/k0sproject/k0s/pkg/component/status"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apconst "github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	"github.com/iscas-fork/k0s/pkg/component/status"
 
-	"github.com/k0sproject/k0s/inttest/common"
-	aptest "github.com/k0sproject/k0s/inttest/common/autopilot"
+	"github.com/iscas-fork/k0s/inttest/common"
+	aptest "github.com/iscas-fork/k0s/inttest/common/autopilot"
 
 	"github.com/stretchr/testify/suite"
 )

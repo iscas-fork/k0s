@@ -26,7 +26,7 @@ import (
 	"path"
 	"time"
 
-	apclient "github.com/k0sproject/k0s/pkg/client/clientset"
+	apclient "github.com/iscas-fork/k0s/pkg/client/clientset"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

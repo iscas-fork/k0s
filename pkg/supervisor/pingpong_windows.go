@@ -23,7 +23,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
 
 	"github.com/Microsoft/go-winio"
 	"github.com/Microsoft/go-winio/pkg/guid"

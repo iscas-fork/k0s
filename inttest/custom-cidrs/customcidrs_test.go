@@ -19,7 +19,7 @@ package customcidrs
 import (
 	"testing"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 	"k8s.io/apimachinery/pkg/util/intstr"
 
 	"github.com/stretchr/testify/suite"

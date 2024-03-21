@@ -24,7 +24,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/component-base/logs"

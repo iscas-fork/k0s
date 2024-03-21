@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"time"
 
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
-	apcont "github.com/k0sproject/k0s/pkg/autopilot/controller"
-	aproot "github.com/k0sproject/k0s/pkg/autopilot/controller/root"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/config"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
+	apcont "github.com/iscas-fork/k0s/pkg/autopilot/controller"
+	aproot "github.com/iscas-fork/k0s/pkg/autopilot/controller/root"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/config"
 	"github.com/sirupsen/logrus"
 
 	"k8s.io/apimachinery/pkg/util/wait"

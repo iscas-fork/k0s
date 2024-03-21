@@ -27,8 +27,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/k0sproject/k0s/internal/pkg/random"
-	k8sutil "github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/internal/pkg/random"
+	k8sutil "github.com/iscas-fork/k0s/pkg/kubernetes"
 )
 
 type Token struct {

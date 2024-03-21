@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	"github.com/k0sproject/k0s/pkg/constant"
-	"github.com/k0sproject/k0s/pkg/k0scloudprovider"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/pkg/k0scloudprovider"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"

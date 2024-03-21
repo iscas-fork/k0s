@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	kubeutil "github.com/k0sproject/k0s/pkg/kubernetes"
-	"github.com/k0sproject/k0s/pkg/leaderelection"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/leaderelection"
 	"github.com/sirupsen/logrus"
 )
 

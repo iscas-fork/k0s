@@ -30,7 +30,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	kubeutil "github.com/k0sproject/k0s/internal/testutil"
+	kubeutil "github.com/iscas-fork/k0s/internal/testutil"
 )
 
 func TestApplierAppliesAllManifestsInADirectory(t *testing.T) {

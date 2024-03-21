@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/testutil"
-	"github.com/k0sproject/k0s/pkg/certificate"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/internal/testutil"
+	"github.com/iscas-fork/k0s/pkg/certificate"
+	"github.com/iscas-fork/k0s/pkg/config"
 
 	"k8s.io/client-go/tools/clientcmd"
 

@@ -21,10 +21,10 @@ import (
 	"testing"
 
 	"github.com/avast/retry-go"
-	"github.com/k0sproject/bootloose/pkg/config"
+	"github.com/iscas-fork/bootloose/pkg/config"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/k0sproject/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/inttest/common"
 )
 
 type BYOCRISuite struct {

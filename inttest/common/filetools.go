@@ -22,7 +22,7 @@ import (
 	"io"
 	"path/filepath"
 
-	"github.com/k0sproject/k0s/internal/pkg/templatewriter"
+	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
 )
 
 // GetFile gets file from the controller with given index

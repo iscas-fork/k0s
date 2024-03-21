@@ -142,7 +142,7 @@ func checkPackageModules(t *testing.T, filter func(modulePath string) bool, chec
 	pkgs, err := packages.Load(&packages.Config{
 		Mode: packages.NeedName | packages.NeedModule | packages.NeedImports | packages.NeedDeps,
 		Logf: t.Logf,
-	}, "github.com/k0sproject/k0s")
+	}, "github.com/iscas-fork/k0s")
 	require.NoError(t, err)
 
 	failedModules := make(map[string]bool)

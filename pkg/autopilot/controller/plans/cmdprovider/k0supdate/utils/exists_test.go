@@ -18,10 +18,10 @@ import (
 	"context"
 	"testing"
 
-	aptcomm "github.com/k0sproject/k0s/inttest/autopilot/common"
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	apscheme "github.com/k0sproject/k0s/pkg/client/clientset/scheme"
+	aptcomm "github.com/iscas-fork/k0s/inttest/autopilot/common"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	apscheme "github.com/iscas-fork/k0s/pkg/client/clientset/scheme"
 
 	"github.com/stretchr/testify/assert"
 	v1 "k8s.io/api/core/v1"

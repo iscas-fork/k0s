@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
 	"github.com/logrusorgru/aurora/v3"
 	"github.com/stretchr/testify/assert"
 )

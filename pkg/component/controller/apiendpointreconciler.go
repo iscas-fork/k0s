@@ -24,15 +24,15 @@ import (
 	"sort"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/controller/leaderelector"
-	kubeutil "github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/controller/leaderelector"
+	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
 
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/k0sproject/k0s/pkg/component/manager"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
 	"github.com/sirupsen/logrus"
 )
 

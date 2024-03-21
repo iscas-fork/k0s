@@ -36,7 +36,7 @@ configuration file. See the section on how to install [k0s via
 k0sctl][k0sctl-install] and the [k0sctl README] for more information.
 
 [k0sctl-install]: k0sctl-install.md
-[k0sctl README]: https://github.com/k0sproject/k0sctl/blob/main/README.md
+[k0sctl README]: https://github.com/iscas-fork/k0sctl/blob/main/README.md
 
 ## Configuration file reference
 

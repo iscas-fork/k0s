@@ -18,8 +18,8 @@ import (
 	"crypto/rand"
 	"math/big"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 )
 
 func FindPending(nodes []apv1beta2.PlanCommandTargetStatus) []apv1beta2.PlanCommandTargetStatus {

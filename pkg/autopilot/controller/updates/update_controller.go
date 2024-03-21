@@ -18,8 +18,8 @@ import (
 	"context"
 	"fmt"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apcli "github.com/k0sproject/k0s/pkg/autopilot/client"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apcli "github.com/iscas-fork/k0s/pkg/autopilot/client"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	cr "sigs.k8s.io/controller-runtime"

@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/autopilot/testutil"
-	"github.com/k0sproject/k0s/pkg/autopilot/constant"
-	"github.com/k0sproject/k0s/pkg/leaderelection"
+	"github.com/iscas-fork/k0s/internal/autopilot/testutil"
+	"github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	"github.com/iscas-fork/k0s/pkg/leaderelection"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )

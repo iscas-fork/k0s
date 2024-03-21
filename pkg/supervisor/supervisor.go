@@ -32,8 +32,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
-	"github.com/k0sproject/k0s/pkg/constant"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/pkg/constant"
 )
 
 // Supervisor is dead simple and stupid process supervisor, just tries to keep the process running in a while-true loop

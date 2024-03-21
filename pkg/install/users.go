@@ -26,10 +26,10 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/k0sproject/k0s/internal/pkg/stringslice"
-	"github.com/k0sproject/k0s/internal/pkg/users"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/internal/pkg/stringslice"
+	"github.com/iscas-fork/k0s/internal/pkg/users"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/config"
 )
 
 func GetControllerUsers(clusterConfig *v1beta1.ClusterConfig) []string {

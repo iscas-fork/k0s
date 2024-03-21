@@ -24,7 +24,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/k0sproject/k0s/internal/pkg/users"
+	"github.com/iscas-fork/k0s/internal/pkg/users"
 
 	"go.uber.org/multierr"
 )

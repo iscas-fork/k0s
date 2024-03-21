@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/k0sproject/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/kubernetes"
 
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/cli-runtime/pkg/resource"

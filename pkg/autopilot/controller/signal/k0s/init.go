@@ -20,12 +20,12 @@ import (
 	"os"
 	"path/filepath"
 
-	apcomm "github.com/k0sproject/k0s/pkg/autopilot/common"
-	apconst "github.com/k0sproject/k0s/pkg/autopilot/constant"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigpred "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/common/predicate"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
-	"github.com/k0sproject/k0s/pkg/component/status"
+	apcomm "github.com/iscas-fork/k0s/pkg/autopilot/common"
+	apconst "github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigpred "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/common/predicate"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
+	"github.com/iscas-fork/k0s/pkg/component/status"
 
 	"github.com/sirupsen/logrus"
 	"sigs.k8s.io/controller-runtime/pkg/client"

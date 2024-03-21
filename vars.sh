@@ -55,8 +55,8 @@ done
 [ -n "$from" ] || from=embedded-bins
 
 case "$var" in
-k0sctl_version) pkg=github.com/k0sproject/k0sctl ;;
-k0s_sort_version) pkg=github.com/k0sproject/version ;;
+k0sctl_version) pkg=github.com/iscas-fork/k0sctl ;;
+k0s_sort_version) pkg=github.com/iscas-fork/version ;;
 *) pkg='' ;;
 esac
 

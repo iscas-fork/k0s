@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"os/exec"
 
-	"github.com/k0sproject/k0s/pkg/component/worker"
-	"github.com/k0sproject/k0s/pkg/config"
+	"github.com/iscas-fork/k0s/pkg/component/worker"
+	"github.com/iscas-fork/k0s/pkg/config"
 
-	"github.com/k0sproject/k0s/pkg/container/runtime"
+	"github.com/iscas-fork/k0s/pkg/container/runtime"
 	"github.com/sirupsen/logrus"
 )
 
@@ -43,7 +43,7 @@ type containerdConfig struct {
 }
 
 func NewConfig(k0sVars *config.CfgVars, cfgFile string, criSocketPath string) (*Config, error) {
-	runDir := "/run/k0s" // https://github.com/k0sproject/k0s/pull/591/commits/c3f932de85a0b209908ad39b817750efc4987395
+	runDir := "/run/k0s" // https://github.com/iscas-fork/k0s/pull/591/commits/c3f932de85a0b209908ad39b817750efc4987395
 
 	var err error
 	var containerdCfg *containerdConfig

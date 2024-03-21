@@ -10,7 +10,7 @@ any obstacles.
 
 [Raspberry Pi 4 Model B]: https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
 [Ubuntu Linux]: https://ubuntu.com/
-[file a Bug]: https://github.com/k0sproject/k0s/issues/new?assignees=&labels=bug&template=BUG_REPORT.yml
+[file a Bug]: https://github.com/iscas-fork/k0s/issues/new?assignees=&labels=bug&template=BUG_REPORT.yml
 
 ## Set up the system
 
@@ -121,11 +121,11 @@ than 8 GB of RAM.
 
 ## Download k0s
 
-Download a [k0s release](https://github.com/k0sproject/k0s/releases/latest). For
+Download a [k0s release](https://github.com/iscas-fork/k0s/releases/latest). For
 example:
 
 ```shell
-wget -O /tmp/k0s https://github.com/k0sproject/k0s/releases/download/v{{{ extra.k8s_version }}}+k0s.0/k0s-v{{{ extra.k8s_version }}}+k0s.0-arm64 # replace version number!
+wget -O /tmp/k0s https://github.com/iscas-fork/k0s/releases/download/v{{{ extra.k8s_version }}}+k0s.0/k0s-v{{{ extra.k8s_version }}}+k0s.0-arm64 # replace version number!
 sudo install /tmp/k0s /usr/local/bin/k0s
 ```
 

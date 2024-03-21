@@ -26,7 +26,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
 
 	"github.com/avast/retry-go"
 	"github.com/sirupsen/logrus"

@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/manager"
-	kubeutil "github.com/k0sproject/k0s/pkg/kubernetes"
-	"github.com/k0sproject/k0s/pkg/leaderelection"
-	"github.com/k0sproject/k0s/pkg/node"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/manager"
+	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/pkg/leaderelection"
+	"github.com/iscas-fork/k0s/pkg/node"
 
 	"github.com/sirupsen/logrus"
 )

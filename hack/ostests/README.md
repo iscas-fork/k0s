@@ -29,7 +29,7 @@ For the AWS infra:
 * Have a configured default region. That region will be targeted by Terraform.
 
 [Terraform]: https://developer.hashicorp.com/terraform
-[k0sctl]: https://github.com/k0sproject/k0sctl/
+[k0sctl]: https://github.com/iscas-fork/k0sctl/
 [jq]: https://jqlang.github.io/jq/
 
 ## Deploying a cluster

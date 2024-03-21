@@ -18,10 +18,10 @@ import (
 	"context"
 	"fmt"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	appku "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/utils"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	appku "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/cmdprovider/k0supdate/utils"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	"github.com/sirupsen/logrus"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"

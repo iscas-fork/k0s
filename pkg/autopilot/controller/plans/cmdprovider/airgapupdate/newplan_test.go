@@ -18,12 +18,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/testutil"
-	aptcomm "github.com/k0sproject/k0s/inttest/autopilot/common"
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
-	apscheme "github.com/k0sproject/k0s/pkg/client/clientset/scheme"
+	"github.com/iscas-fork/k0s/internal/testutil"
+	aptcomm "github.com/iscas-fork/k0s/inttest/autopilot/common"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
+	apscheme "github.com/iscas-fork/k0s/pkg/client/clientset/scheme"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"

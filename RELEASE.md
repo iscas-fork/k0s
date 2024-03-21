@@ -11,11 +11,11 @@ To create the annotated tag do:
 
 When releasing multiple versions make sure to tag from the oldest version to the newest in order, this is important because it will affect the order in the release page.
 
-**WARNING**: The tag cannot be pushed with `git push --tags` because it won't trigger the [release GitHub Action](https://github.com/k0sproject/k0s/actions/workflows/release.yml). You must do `git push <tag>`.
+**WARNING**: The tag cannot be pushed with `git push --tags` because it won't trigger the [release GitHub Action](https://github.com/iscas-fork/k0s/actions/workflows/release.yml). You must do `git push <tag>`.
 
 Tag creation triggers the release workflow which will do most of the heavy-lifting:
 
-- Create the actual release in [releases](https://github.com/k0sproject/k0s/releases/)
+- Create the actual release in [releases](https://github.com/iscas-fork/k0s/releases/)
 - Build `k0s` binary on both AMD64 and ARM64 architectures
 - Push the bins into the release as downloadable assets
 

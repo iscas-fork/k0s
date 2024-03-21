@@ -24,7 +24,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/k0sproject/k0s/internal/pkg/dir"
+	"github.com/iscas-fork/k0s/internal/pkg/dir"
 	"github.com/sirupsen/logrus"
 )
 

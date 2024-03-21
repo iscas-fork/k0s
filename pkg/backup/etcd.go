@@ -27,8 +27,8 @@ import (
 	"go.etcd.io/etcd/client/v3/snapshot"
 	"go.uber.org/zap"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
-	"github.com/k0sproject/k0s/pkg/etcd"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/pkg/etcd"
 
 	utilsnapshot "go.etcd.io/etcd/etcdutl/v3/snapshot"
 )

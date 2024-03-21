@@ -23,9 +23,9 @@ import (
 	"os/exec"
 	"path"
 
-	ts "github.com/k0sproject/k0s/inttest/toolsuite"
-	tsutil "github.com/k0sproject/k0s/inttest/toolsuite/util"
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
+	ts "github.com/iscas-fork/k0s/inttest/toolsuite"
+	tsutil "github.com/iscas-fork/k0s/inttest/toolsuite/util"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
 
 	"sigs.k8s.io/yaml"
 

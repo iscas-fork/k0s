@@ -17,9 +17,9 @@ package discovery
 import (
 	"context"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/fields"

@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/k0sproject/k0s/pkg/autopilot/client"
-	"github.com/k0sproject/k0s/pkg/leaderelection"
+	"github.com/iscas-fork/k0s/pkg/autopilot/client"
+	"github.com/iscas-fork/k0s/pkg/leaderelection"
 	"github.com/sirupsen/logrus"
 	clientset "k8s.io/client-go/kubernetes"
 )

@@ -22,8 +22,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/k0sproject/k0s/cmd"
-	k0slog "github.com/k0sproject/k0s/internal/pkg/log"
+	"github.com/iscas-fork/k0s/cmd"
+	k0slog "github.com/iscas-fork/k0s/internal/pkg/log"
 )
 
 //go:generate make codegen

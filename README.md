@@ -1,10 +1,10 @@
 # k0s - The Zero Friction Kubernetes by Team Lens
 
-[![Go build](https://github.com/k0sproject/k0s/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/k0sproject/k0s/actions/workflows/go.yml?query=branch%3Amain)
-[![k0s network conformance](https://github.com/k0sproject/k0s/workflows/k0s%20Check%20Network/badge.svg)](https://github.com/k0sproject/k0s/actions/workflows/check-network.yaml)
-[![Go Reference](https://img.shields.io/badge/code%20reference-go.dev-bc42f5.svg)](https://pkg.go.dev/github.com/k0sproject/k0s)
+[![Go build](https://github.com/iscas-fork/k0s/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/iscas-fork/k0s/actions/workflows/go.yml?query=branch%3Amain)
+[![k0s network conformance](https://github.com/iscas-fork/k0s/workflows/k0s%20Check%20Network/badge.svg)](https://github.com/iscas-fork/k0s/actions/workflows/check-network.yaml)
+[![Go Reference](https://img.shields.io/badge/code%20reference-go.dev-bc42f5.svg)](https://pkg.go.dev/github.com/iscas-fork/k0s)
 ![GitHub Repo stars](https://img.shields.io/github/stars/k0sproject/k0s?color=blueviolet&label=Stargazers)
-[![Releases](https://img.shields.io/github/downloads/k0sproject/k0s/total.svg)](https://github.com/k0sproject/k0s/tags?label=Downloads)
+[![Releases](https://img.shields.io/github/downloads/k0sproject/k0s/total.svg)](https://github.com/iscas-fork/k0s/tags?label=Downloads)
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/k0sproject/k0s?label=latest%20stable)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/k0sproject/k0s?include_prereleases&label=latest-release%20%28including+pre-release%29) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/k0sproject/k0s/latest)
@@ -69,7 +69,7 @@ We welcome your help in building k0s! If you are interested, we invite you to
 check out the [Contributing Guide] and the [Code of Conduct].
 
 [Lens Forums]: https://forums.k8slens.dev/
-[GitHub Issues]: https://github.com/k0sproject/k0s/issues
+[GitHub Issues]: https://github.com/iscas-fork/k0s/issues
 [Contributing Guide]: https://docs.k0sproject.io/stable/contributors/overview/
 [Code of Conduct]:https://docs.k0sproject.io/stable/contributors/CODE_OF_CONDUCT/
 

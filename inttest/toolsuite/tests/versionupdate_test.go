@@ -19,14 +19,14 @@ import (
 	"fmt"
 	"testing"
 
-	aptest "github.com/k0sproject/k0s/inttest/common/autopilot"
-	ts "github.com/k0sproject/k0s/inttest/toolsuite"
-	tsops "github.com/k0sproject/k0s/inttest/toolsuite/operations"
-	tsutil "github.com/k0sproject/k0s/inttest/toolsuite/util"
+	aptest "github.com/iscas-fork/k0s/inttest/common/autopilot"
+	ts "github.com/iscas-fork/k0s/inttest/toolsuite"
+	tsops "github.com/iscas-fork/k0s/inttest/toolsuite/operations"
+	tsutil "github.com/iscas-fork/k0s/inttest/toolsuite/util"
 
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
-	apconst "github.com/k0sproject/k0s/pkg/autopilot/constant"
-	appc "github.com/k0sproject/k0s/pkg/autopilot/controller/plans/core"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
+	apconst "github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	appc "github.com/iscas-fork/k0s/pkg/autopilot/controller/plans/core"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 

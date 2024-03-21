@@ -19,8 +19,8 @@ package sysinfo
 import (
 	"regexp"
 
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes"
-	"github.com/k0sproject/k0s/internal/pkg/sysinfo/probes/linux"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes"
+	"github.com/iscas-fork/k0s/internal/pkg/sysinfo/probes/linux"
 )
 
 func (s *K0sSysinfoSpec) addHostSpecificProbes(p probes.Probes) {

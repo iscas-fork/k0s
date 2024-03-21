@@ -1,10 +1,10 @@
 # GitHub Workflow
 
-This guide assumes you have already cloned the upstream repo to your system via `git clone`, or via `go get github.com/k0sproject/k0s`.
+This guide assumes you have already cloned the upstream repo to your system via `git clone`, or via `go get github.com/iscas-fork/k0s`.
 
 ## Fork The Project
 
-1. Go to http://github.com/k0sproject/k0s
+1. Go to http://github.com/iscas-fork/k0s
 2. On the top, right-hand side, click on "fork" and select your username for the fork destination.
 
 ## Adding the Forked Remote
@@ -31,7 +31,7 @@ git remote -v
 ```
 
 ```shell
-origin  https://github.com/k0sproject/k0s (fetch)
+origin  https://github.com/iscas-fork/k0s (fetch)
 origin  no_push (push)
 my_fork git@github.com:{ github_username }/k0s.git (fetch)
 my_fork git@github.com:{ github_username }/k0s.git (push)
@@ -98,7 +98,7 @@ Further paragraphs come after blank lines.
 If you use an issue tracker, put references to them at the bottom,
 like this:
 
-Fixes: https://github.com/k0sproject/k0s/issues/373
+Fixes: https://github.com/iscas-fork/k0s/issues/373
 See also: #456, #789
 
 Signed-off-by: Name Lastname <user@example.com>

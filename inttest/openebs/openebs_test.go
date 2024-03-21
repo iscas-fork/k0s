@@ -21,14 +21,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/bootloose/pkg/config"
-	"github.com/k0sproject/k0s/inttest/common"
-	"github.com/k0sproject/k0s/pkg/kubernetes/watch"
+	"github.com/iscas-fork/bootloose/pkg/config"
+	"github.com/iscas-fork/k0s/inttest/common"
+	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/client-go/kubernetes"
 
-	helmv1beta1 "github.com/k0sproject/k0s/pkg/apis/helm/v1beta1"
-	helmclient "github.com/k0sproject/k0s/pkg/client/clientset/typed/helm/v1beta1"
+	helmv1beta1 "github.com/iscas-fork/k0s/pkg/apis/helm/v1beta1"
+	helmclient "github.com/iscas-fork/k0s/pkg/client/clientset/typed/helm/v1beta1"
 	"github.com/stretchr/testify/suite"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )

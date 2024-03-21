@@ -23,8 +23,8 @@ import (
 	"k8s.io/cli-runtime/pkg/resource"
 	"sigs.k8s.io/yaml"
 
-	"github.com/k0sproject/k0s/pkg/kubernetes"
-	"github.com/k0sproject/k0s/static"
+	"github.com/iscas-fork/k0s/pkg/kubernetes"
+	"github.com/iscas-fork/k0s/static"
 )
 
 func CanUpdate(log logrus.FieldLogger, clientFactory kubernetes.ClientFactoryInterface, newVersion string) error {

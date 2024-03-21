@@ -5,7 +5,7 @@ The terraform code included in this directory will help you quickly set-up a k0s
 ## Requirements
 
 1. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform)
-2. [K0sctl](https://github.com/k0sproject/k0sctl/#installation) (a k0s configuration tool)
+2. [K0sctl](https://github.com/iscas-fork/k0sctl/#installation) (a k0s configuration tool)
 
 This guide assumes you have the appropriate AWS environment variables exported for authentication (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_SESSION_TOKEN`).
 
@@ -17,7 +17,7 @@ Once the correct variables are exported, the commands below are needed to run te
 
 ```shell
 export TF_VAR_cluster_name="k0s_conformance" # can be changed to any value
-export TF_VAR_k0s_version=latest # refers to release tags from https://github.com/k0sproject/k0s/releases
+export TF_VAR_k0s_version=latest # refers to release tags from https://github.com/iscas-fork/k0s/releases
 
 cd terraform
 

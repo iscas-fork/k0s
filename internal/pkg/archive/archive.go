@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/k0sproject/k0s/internal/pkg/file"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
 
 	"github.com/sirupsen/logrus"
 )

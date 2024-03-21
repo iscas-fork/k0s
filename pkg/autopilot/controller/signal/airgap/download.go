@@ -18,11 +18,11 @@ import (
 	"crypto/sha256"
 	"path"
 
-	apconst "github.com/k0sproject/k0s/pkg/autopilot/constant"
-	apdel "github.com/k0sproject/k0s/pkg/autopilot/controller/delegate"
-	apsigcomm "github.com/k0sproject/k0s/pkg/autopilot/controller/signal/common"
-	apdl "github.com/k0sproject/k0s/pkg/autopilot/download"
-	apsigv2 "github.com/k0sproject/k0s/pkg/autopilot/signaling/v2"
+	apconst "github.com/iscas-fork/k0s/pkg/autopilot/constant"
+	apdel "github.com/iscas-fork/k0s/pkg/autopilot/controller/delegate"
+	apsigcomm "github.com/iscas-fork/k0s/pkg/autopilot/controller/signal/common"
+	apdl "github.com/iscas-fork/k0s/pkg/autopilot/download"
+	apsigv2 "github.com/iscas-fork/k0s/pkg/autopilot/signaling/v2"
 
 	"github.com/sirupsen/logrus"
 	cr "sigs.k8s.io/controller-runtime"

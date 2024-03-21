@@ -127,7 +127,7 @@ $(smoketests):
 	K0S_IMAGES_BUNDLE='$(K0S_IMAGES_BUNDLE)' \
 	K0S_UPDATE_TO_VERSION='$(K0S_UPDATE_TO_VERSION)' \
 	K0SCTL_VERSION='$(K0SCTL_VERSION)' \
-	go test -count=1 -v -timeout $(TIMEOUT) github.com/k0sproject/k0s/inttest/$(TEST_PACKAGE)
+	go test -count=1 -v -timeout $(TIMEOUT) github.com/iscas-fork/k0s/inttest/$(TEST_PACKAGE)
 .PHONY: clean
 
 clean:

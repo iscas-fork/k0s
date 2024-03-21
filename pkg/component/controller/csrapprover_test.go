@@ -26,9 +26,9 @@ import (
 	"encoding/pem"
 	"testing"
 
-	"github.com/k0sproject/k0s/internal/testutil"
-	"github.com/k0sproject/k0s/pkg/apis/k0s/v1beta1"
-	"github.com/k0sproject/k0s/pkg/component/controller/leaderelector"
+	"github.com/iscas-fork/k0s/internal/testutil"
+	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
+	"github.com/iscas-fork/k0s/pkg/component/controller/leaderelector"
 	"github.com/stretchr/testify/assert"
 	certv1 "k8s.io/api/certificates/v1"
 	core "k8s.io/api/core/v1"

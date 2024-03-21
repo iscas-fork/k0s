@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	proberPackage "github.com/k0sproject/k0s/pkg/component/prober"
+	proberPackage "github.com/iscas-fork/k0s/pkg/component/prober"
 	"github.com/stretchr/testify/require"
 )
 

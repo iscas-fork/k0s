@@ -15,7 +15,7 @@
 package delegate
 
 import (
-	apv1beta2 "github.com/k0sproject/k0s/pkg/apis/autopilot/v1beta2"
+	apv1beta2 "github.com/iscas-fork/k0s/pkg/apis/autopilot/v1beta2"
 
 	"testing"
 
