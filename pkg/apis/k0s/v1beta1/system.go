@@ -22,7 +22,6 @@ import "github.com/iscas-fork/k0s/pkg/constant"
 type SystemUser struct {
 	Etcd          string `json:"etcdUser,omitempty"`
 	Kine          string `json:"kineUser,omitempty"`
-	Konnectivity  string `json:"konnectivityUser,omitempty"`
 	KubeAPIServer string `json:"kubeAPIserverUser,omitempty"`
 	KubeScheduler string `json:"kubeSchedulerUser,omitempty"`
 }
@@ -32,7 +31,6 @@ func DefaultSystemUsers() *SystemUser {
 	return &SystemUser{
 		Etcd:          constant.EtcdUser,
 		Kine:          constant.KineUser,
-		Konnectivity:  constant.KonnectivityServerUser,
 		KubeAPIServer: constant.ApiserverUser,
 		KubeScheduler: constant.SchedulerUser,
 	}

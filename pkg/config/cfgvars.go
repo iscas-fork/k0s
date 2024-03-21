@@ -39,25 +39,23 @@ const (
 // Some of the variables are duplicates of the ones in the CLIOptions struct
 // for historical and convenience reasons.
 type CfgVars struct {
-	AdminKubeConfigPath        string // The cluster admin kubeconfig location
-	BinDir                     string // location for all pki related binaries
-	CertRootDir                string // CertRootDir defines the root location for all pki related artifacts
-	DataDir                    string // Data directory containing k0s state
-	EtcdCertDir                string // EtcdCertDir contains etcd certificates
-	EtcdDataDir                string // EtcdDataDir contains etcd state
-	KineSocketPath             string // The unix socket path for kine
-	KonnectivitySocketDir      string // location of konnectivity's socket path
-	KubeletAuthConfigPath      string // KubeletAuthConfigPath defines the default kubelet auth config path
-	KubeletVolumePluginDir     string // location for kubelet plugins volume executables
-	ManifestsDir               string // location for all stack manifests
-	RunDir                     string // location of supervised pid files and sockets
-	KonnectivityKubeConfigPath string // location for konnectivity kubeconfig
-	OCIBundleDir               string // location for OCI bundles
-	DefaultStorageType         string // Default backend storage
-	RuntimeConfigPath          string // A static copy of the config loaded at startup
-	StatusSocketPath           string // The unix socket path for k0s status API
-	StartupConfigPath          string // The path to the config file used at startup
-	EnableDynamicConfig        bool   // EnableDynamicConfig enables dynamic config
+	AdminKubeConfigPath    string // The cluster admin kubeconfig location
+	BinDir                 string // location for all pki related binaries
+	CertRootDir            string // CertRootDir defines the root location for all pki related artifacts
+	DataDir                string // Data directory containing k0s state
+	EtcdCertDir            string // EtcdCertDir contains etcd certificates
+	EtcdDataDir            string // EtcdDataDir contains etcd state
+	KineSocketPath         string // The unix socket path for kine
+	KubeletAuthConfigPath  string // KubeletAuthConfigPath defines the default kubelet auth config path
+	KubeletVolumePluginDir string // location for kubelet plugins volume executables
+	ManifestsDir           string // location for all stack manifests
+	RunDir                 string // location of supervised pid files and sockets
+	OCIBundleDir           string // location for OCI bundles
+	DefaultStorageType     string // Default backend storage
+	RuntimeConfigPath      string // A static copy of the config loaded at startup
+	StatusSocketPath       string // The unix socket path for k0s status API
+	StartupConfigPath      string // The path to the config file used at startup
+	EnableDynamicConfig    bool   // EnableDynamicConfig enables dynamic config
 
 	nodeConfig *v1beta1.ClusterConfig
 	origin     CfgVarsOriginType
@@ -155,23 +153,21 @@ func NewCfgVars(cobraCmd command, dirs ...string) (*CfgVars, error) {
 	certDir := filepath.Join(dataDir, "pki")
 
 	vars := &CfgVars{
-		AdminKubeConfigPath:        filepath.Join(certDir, "admin.conf"),
-		BinDir:                     filepath.Join(dataDir, "bin"),
-		OCIBundleDir:               filepath.Join(dataDir, "images"),
-		CertRootDir:                certDir,
-		DataDir:                    dataDir,
-		EtcdCertDir:                filepath.Join(certDir, "etcd"),
-		EtcdDataDir:                filepath.Join(dataDir, "etcd"),
-		KineSocketPath:             filepath.Join(runDir, constant.KineSocket),
-		KonnectivitySocketDir:      filepath.Join(runDir, "konnectivity-server"),
-		KubeletAuthConfigPath:      filepath.Join(dataDir, "kubelet.conf"),
-		KubeletVolumePluginDir:     constant.KubeletVolumePluginDir,
-		ManifestsDir:               filepath.Join(dataDir, "manifests"),
-		RunDir:                     runDir,
-		KonnectivityKubeConfigPath: filepath.Join(certDir, "konnectivity.conf"),
-		RuntimeConfigPath:          filepath.Join(runDir, "k0s.yaml"),
-		StatusSocketPath:           filepath.Join(runDir, "status.sock"),
-		StartupConfigPath:          constant.K0sConfigPathDefault,
+		AdminKubeConfigPath:    filepath.Join(certDir, "admin.conf"),
+		BinDir:                 filepath.Join(dataDir, "bin"),
+		OCIBundleDir:           filepath.Join(dataDir, "images"),
+		CertRootDir:            certDir,
+		DataDir:                dataDir,
+		EtcdCertDir:            filepath.Join(certDir, "etcd"),
+		EtcdDataDir:            filepath.Join(dataDir, "etcd"),
+		KineSocketPath:         filepath.Join(runDir, constant.KineSocket),
+		KubeletAuthConfigPath:  filepath.Join(dataDir, "kubelet.conf"),
+		KubeletVolumePluginDir: constant.KubeletVolumePluginDir,
+		ManifestsDir:           filepath.Join(dataDir, "manifests"),
+		RunDir:                 runDir,
+		RuntimeConfigPath:      filepath.Join(runDir, "k0s.yaml"),
+		StatusSocketPath:       filepath.Join(runDir, "status.sock"),
+		StartupConfigPath:      constant.K0sConfigPathDefault,
 
 		origin: CfgVarsOriginDefault,
 	}

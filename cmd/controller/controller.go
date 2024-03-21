@@ -43,7 +43,6 @@ import (
 	"github.com/iscas-fork/k0s/pkg/component/controller"
 	"github.com/iscas-fork/k0s/pkg/component/controller/clusterconfig"
 	"github.com/iscas-fork/k0s/pkg/component/controller/leaderelector"
-	"github.com/iscas-fork/k0s/pkg/component/controller/workerconfig"
 	"github.com/iscas-fork/k0s/pkg/component/manager"
 	"github.com/iscas-fork/k0s/pkg/component/prober"
 	"github.com/iscas-fork/k0s/pkg/component/status"
@@ -224,29 +223,14 @@ func (c *command) start(ctx context.Context) error {
 		nodeComponents.Add(ctx, controllerLeaseCounter)
 	}
 
-	enableKonnectivity := !c.SingleNode && !slices.Contains(c.DisableComponents, constant.KonnectivityServerComponentName)
 	disableEndpointReconciler := !slices.Contains(c.DisableComponents, constant.APIEndpointReconcilerComponentName) &&
 		nodeConfig.Spec.API.ExternalAddress != ""
-
-	if enableKonnectivity {
-		nodeComponents.Add(ctx, &controller.Konnectivity{
-			SingleNode:                 c.SingleNode,
-			LogLevel:                   c.Logging[constant.KonnectivityServerComponentName],
-			K0sVars:                    c.K0sVars,
-			KubeClientFactory:          adminClientFactory,
-			NodeConfig:                 nodeConfig,
-			EventEmitter:               prober.NewEventEmitter(),
-			K0sControllersLeaseCounter: controllerLeaseCounter,
-		})
-
-	}
 
 	nodeComponents.Add(ctx, &controller.APIServer{
 		ClusterConfig:             nodeConfig,
 		K0sVars:                   c.K0sVars,
 		LogLevel:                  c.Logging["kube-apiserver"],
 		Storage:                   storageBackend,
-		EnableKonnectivity:        enableKonnectivity,
 		DisableEndpointReconciler: disableEndpointReconciler,
 	})
 
@@ -420,14 +404,7 @@ func (c *command) start(ctx context.Context) error {
 		if err != nil {
 			return fmt.Errorf("failed to create calico_init manifests saver: %w", err)
 		}
-		windowsStackSaver, err := controller.NewManifestsSaver("windows", c.K0sVars.DataDir)
-		if err != nil {
-			return fmt.Errorf("failed to create windows manifests saver: %w", err)
-		}
 		clusterComponents.Add(ctx, controller.NewCalico(c.K0sVars, calicoInitSaver, calicoSaver))
-		if !slices.Contains(c.DisableComponents, constant.WindowsNodeComponentName) {
-			clusterComponents.Add(ctx, controller.NewWindowsStackComponent(c.K0sVars, adminClientFactory, windowsStackSaver))
-		}
 		kubeRouterSaver, err := controller.NewManifestsSaver("kuberouter", c.K0sVars.DataDir)
 		if err != nil {
 			return fmt.Errorf("failed to create kuberouter manifests saver: %w", err)
@@ -451,33 +428,12 @@ func (c *command) start(ctx context.Context) error {
 		clusterComponents.Add(ctx, metrics)
 	}
 
-	if !slices.Contains(c.DisableComponents, constant.WorkerConfigComponentName) {
-		reconciler, err := workerconfig.NewReconciler(c.K0sVars, nodeConfig.Spec, adminClientFactory, leaderElector, enableKonnectivity)
-		if err != nil {
-			return err
-		}
-		clusterComponents.Add(ctx, reconciler)
-		clusterComponents.Add(ctx, controller.NewKubeletConfig(c.K0sVars))
-	}
-
 	if !slices.Contains(c.DisableComponents, constant.SystemRbacComponentName) {
 		clusterComponents.Add(ctx, controller.NewSystemRBAC(c.K0sVars.ManifestsDir))
 	}
 
 	if !slices.Contains(c.DisableComponents, constant.NodeRoleComponentName) {
 		clusterComponents.Add(ctx, controller.NewNodeRole(c.K0sVars, adminClientFactory))
-	}
-
-	if enableKonnectivity {
-		clusterComponents.Add(ctx, &controller.KonnectivityAgent{
-			SingleNode:                 c.SingleNode,
-			LogLevel:                   c.Logging[constant.KonnectivityServerComponentName],
-			K0sVars:                    c.K0sVars,
-			KubeClientFactory:          adminClientFactory,
-			NodeConfig:                 nodeConfig,
-			EventEmitter:               prober.NewEventEmitter(),
-			K0sControllersLeaseCounter: controllerLeaseCounter,
-		})
 	}
 
 	if !slices.Contains(c.DisableComponents, constant.KubeSchedulerComponentName) {

@@ -106,22 +106,6 @@ func (c *Certificates) Init(ctx context.Context) error {
 	})
 
 	eg.Go(func() error {
-		// konnectivity kubeconfig
-		konnectivityReq := certificate.Request{
-			Name:   "konnectivity",
-			CN:     "kubernetes-konnectivity",
-			O:      "system:masters", // TODO: We need to figure out if konnectivity really needs superpowers
-			CACert: caCertPath,
-			CAKey:  caCertKey,
-		}
-		konnectivityCert, err := c.CertManager.EnsureCertificate(konnectivityReq, constant.KonnectivityServerUser)
-		if err != nil {
-			return err
-		}
-		return kubeConfig(c.K0sVars.KonnectivityKubeConfigPath, kubeConfigAPIUrl, c.CACert, konnectivityCert.Cert, konnectivityCert.Key, constant.KonnectivityServerUser)
-	})
-
-	eg.Go(func() error {
 		ccmReq := certificate.Request{
 			Name:   "ccm",
 			CN:     "system:kube-controller-manager",

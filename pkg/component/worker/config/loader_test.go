@@ -50,8 +50,6 @@ data:
     [127.10.10.1:9998, 127.10.10.2:9997]
   nodeLocalLoadBalancing: |
     {enabled: true}
-  konnectivity: |
-    {agentPort: 1337}
 `
 	workerConfigMap := corev1.ConfigMap{
 		TypeMeta: metav1.TypeMeta{
@@ -64,7 +62,6 @@ data:
 		},
 		Data: map[string]string{
 			"nodeLocalLoadBalancing": "{enabled: false}",
-			"konnectivity":           "{agentPort: 1337}",
 		},
 	}
 
@@ -147,7 +144,6 @@ func TestWatchProfile(t *testing.T) {
 		},
 		Data: map[string]string{
 			"kubeletConfiguration": "{kind: foo}",
-			"konnectivity":         "{agentPort: 1337}",
 		},
 	}
 

@@ -38,9 +38,6 @@ apiVersion: k0s.k0sproject.io/v1beta1s
 kind: ClusterConfig
 spec:
   images:
-    konnectivity:
-      image: custom-repository/my-custom-konnectivity-image
-      version: v0.0.1
     coredns:
       image: custom.io/coredns/coredns
       version: 1.0.0
@@ -49,7 +46,6 @@ spec:
 	require.NoError(t, err)
 	a := cfg.Spec.Images
 
-	assert.Equal(t, "custom-repository/my-custom-konnectivity-image:v0.0.1", a.Konnectivity.URI())
 	assert.Equal(t, "1.0.0", a.CoreDNS.Version)
 	assert.Equal(t, "custom.io/coredns/coredns", a.CoreDNS.Image)
 	assert.Equal(t, "registry.k8s.io/metrics-server/metrics-server", a.MetricsServer.Image)
@@ -62,7 +58,6 @@ func TestImagesRepoOverrideInConfiguration(t *testing.T) {
 			cfg.Spec.Images.Repository = "my.repo"
 			var testingConfig *ClusterConfig
 			require.NoError(t, yaml.Unmarshal(getConfigYAML(t, cfg), &testingConfig))
-			require.Equal(t, fmt.Sprintf("my.repo/k0sproject/apiserver-network-proxy-agent:%s", constant.KonnectivityImageVersion), testingConfig.Spec.Images.Konnectivity.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/metrics-server/metrics-server:%s", constant.MetricsImageVersion), testingConfig.Spec.Images.MetricsServer.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/k0sproject/kube-proxy:%s", constant.KubeProxyImageVersion), testingConfig.Spec.Images.KubeProxy.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/k0sproject/coredns:%s", constant.CoreDNSImageVersion), testingConfig.Spec.Images.CoreDNS.URI())
@@ -78,11 +73,9 @@ func TestImagesRepoOverrideInConfiguration(t *testing.T) {
 		})
 		t.Run("config_with_custom_images", func(t *testing.T) {
 			cfg := DefaultClusterConfig()
-			cfg.Spec.Images.Konnectivity.Image = "my-custom-image"
 			cfg.Spec.Images.Repository = "my.repo"
 			var testingConfig *ClusterConfig
 			require.NoError(t, yaml.Unmarshal(getConfigYAML(t, cfg), &testingConfig))
-			require.Equal(t, fmt.Sprintf("my.repo/my-custom-image:%s", constant.KonnectivityImageVersion), testingConfig.Spec.Images.Konnectivity.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/metrics-server/metrics-server:%s", constant.MetricsImageVersion), testingConfig.Spec.Images.MetricsServer.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/k0sproject/kube-proxy:%s", constant.KubeProxyImageVersion), testingConfig.Spec.Images.KubeProxy.URI())
 			require.Equal(t, fmt.Sprintf("my.repo/k0sproject/coredns:%s", constant.CoreDNSImageVersion), testingConfig.Spec.Images.CoreDNS.URI())

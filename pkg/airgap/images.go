@@ -35,7 +35,6 @@ func GetImageURIs(spec *v1beta1.ClusterSpec, all bool) []string {
 		spec.Images.Calico.KubeControllers.URI(),
 		spec.Images.Calico.Node.URI(),
 		spec.Images.CoreDNS.URI(),
-		spec.Images.Konnectivity.URI(),
 		spec.Images.KubeProxy.URI(),
 		spec.Images.KubeRouter.CNI.URI(),
 		spec.Images.KubeRouter.CNIInstaller.URI(),

@@ -32,7 +32,6 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/iscas-fork/k0s/internal/pkg/stringmap"
-	"github.com/iscas-fork/k0s/internal/pkg/templatewriter"
 	"github.com/iscas-fork/k0s/internal/pkg/users"
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/iscas-fork/k0s/pkg/assets"
@@ -48,7 +47,6 @@ type APIServer struct {
 	K0sVars                   *config.CfgVars
 	LogLevel                  string
 	Storage                   manager.Component
-	EnableKonnectivity        bool
 	DisableEndpointReconciler bool
 	gid                       int
 	supervisor                supervisor.Supervisor
@@ -127,15 +125,6 @@ func (a *APIServer) Start(_ context.Context) error {
 
 	apiAudiences := []string{"https://kubernetes.default.svc"}
 
-	if a.EnableKonnectivity {
-		err := a.writeKonnectivityConfig()
-		if err != nil {
-			return err
-		}
-		args["egress-selector-config-file"] = path.Join(a.K0sVars.DataDir, "konnectivity.conf")
-		apiAudiences = append(apiAudiences, "system:konnectivity-server")
-	}
-
 	args["api-audiences"] = strings.Join(apiAudiences, ",")
 
 	for name, value := range a.ClusterConfig.Spec.API.ExtraArgs {
@@ -180,23 +169,6 @@ func (a *APIServer) Start(_ context.Context) error {
 	a.supervisor.Args = append(a.supervisor.Args, etcdArgs...)
 
 	return a.supervisor.Supervise()
-}
-
-func (a *APIServer) writeKonnectivityConfig() error {
-	tw := templatewriter.TemplateWriter{
-		Name:     "konnectivity",
-		Template: egressSelectorConfigTemplate,
-		Data: egressSelectorConfig{
-			UDSName: path.Join(a.K0sVars.KonnectivitySocketDir, "konnectivity-server.sock"),
-		},
-		Path: path.Join(a.K0sVars.DataDir, "konnectivity.conf"),
-	}
-	err := tw.Write()
-	if err != nil {
-		return fmt.Errorf("failed to write konnectivity config: %w", err)
-	}
-
-	return nil
 }
 
 // Stop stops APIServer

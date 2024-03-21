@@ -146,14 +146,6 @@ spec:
                     - IfNotPresent
                     - Never
                     type: string
-                  konnectivity:
-                    description: ImageSpec container image settings
-                    properties:
-                      image:
-                        type: string
-                      version:
-                        type: string
-                    type: object
                   kubeproxy:
                     description: ImageSpec container image settings
                     properties:
@@ -221,31 +213,11 @@ spec:
                         type: string
                       kineUser:
                         type: string
-                      konnectivityUser:
-                        type: string
                       kubeAPIserverUser:
                         type: string
                       kubeSchedulerUser:
                         type: string
                     type: object
-                type: object
-              konnectivity:
-                description: KonnectivitySpec defines the requested state for Konnectivity
-                properties:
-                  adminPort:
-                    default: 8133
-                    description: admin port to listen on (default 8133)
-                    format: int32
-                    maximum: 65535
-                    minimum: 1
-                    type: integer
-                  agentPort:
-                    default: 8132
-                    description: agent port to listen on (default 8132)
-                    format: int32
-                    maximum: 65535
-                    minimum: 1
-                    type: integer
                 type: object
               network:
                 description: Network defines the network related config options
@@ -457,17 +429,6 @@ spec:
                             - Never
                             - IfNotPresent
                             type: string
-                          konnectivityServerBindPort:
-                            default: 7132
-                            description: |-
-                              konnectivityServerBindPort is the port number on which to bind the Envoy
-                              load balancer for the konnectivity server to on a worker's loopback
-                              interface. This must be a valid port number, 0 < x < 65536.
-                              Default: 7132
-                            format: int32
-                            maximum: 65535
-                            minimum: 1
-                            type: integer
                         type: object
                       type:
                         default: EnvoyProxy

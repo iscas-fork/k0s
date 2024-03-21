@@ -48,7 +48,6 @@ type ClusterSpec struct {
 	Telemetry         *ClusterTelemetry      `json:"telemetry"`
 	Install           *InstallSpec           `json:"installConfig,omitempty"`
 	Images            *ClusterImages         `json:"images,omitempty"`
-	Konnectivity      *KonnectivitySpec      `json:"konnectivity,omitempty"`
 	FeatureGates      FeatureGates           `json:"featureGates,omitempty"`
 }
 
@@ -97,9 +96,6 @@ func (c *ClusterConfig) StripDefaults() *ClusterConfig {
 	}
 	if reflect.DeepEqual(copy.Spec.Images, DefaultClusterImages()) {
 		copy.Spec.Images = nil
-	}
-	if reflect.DeepEqual(copy.Spec.Konnectivity, DefaultKonnectivitySpec()) {
-		copy.Spec.Konnectivity = nil
 	}
 	return copy
 }
@@ -256,10 +252,6 @@ func (c *ClusterConfig) UnmarshalJSON(data []byte) error {
 	if jc.Spec.Telemetry == nil {
 		jc.Spec.Telemetry = DefaultClusterTelemetry()
 	}
-	if jc.Spec.Konnectivity == nil {
-		jc.Spec.Konnectivity = DefaultKonnectivitySpec()
-	}
-
 	jc.Spec.overrideImageRepositories()
 
 	return nil
@@ -283,7 +275,6 @@ func DefaultClusterSpec(defaultStorage ...*StorageSpec) *ClusterSpec {
 		Install:           DefaultInstallSpec(),
 		Images:            DefaultClusterImages(),
 		Telemetry:         DefaultClusterTelemetry(),
-		Konnectivity:      DefaultKonnectivitySpec(),
 	}
 
 	spec.overrideImageRepositories()
@@ -311,7 +302,6 @@ func (s *ClusterSpec) Validate() (errs []error) {
 		"workerProfiles":    s.WorkerProfiles,
 		"telemetry":         s.Telemetry,
 		"install":           s.Install,
-		"konnectivity":      s.Konnectivity,
 	} {
 		for _, err := range field.Validate() {
 			errs = append(errs, fmt.Errorf("%s: %w", name, err))

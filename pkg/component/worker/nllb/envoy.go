@@ -68,9 +68,6 @@ type envoyParams struct {
 
 	// Port to which Envoy will bind the API server load balancer.
 	apiServerBindPort uint16
-
-	// Port to which Konnectivity will bind.
-	konnectivityServerBindPort uint16
 }
 
 // envoyPodParams holds the parameters for the static Envoy pod template.
@@ -86,9 +83,6 @@ type envoyPodParams struct {
 type envoyFilesParams struct {
 	// Addresses on which the upstream API servers are listening.
 	apiServers []k0snet.HostPort
-
-	// Port on which the upstream konnectivity servers are listening.
-	konnectivityServerPort uint16
 }
 
 // envoyConfig is a convenience struct that combines all envoy parameters.
@@ -141,25 +135,19 @@ func (e *envoyProxy) start(ctx context.Context, profile workerconfig.Profile, ap
 	}
 
 	nllb := profile.NodeLocalLoadBalancing
-	var konnectivityBindPort uint16
-	if nllb.EnvoyProxy.KonnectivityServerBindPort != nil {
-		konnectivityBindPort = uint16(*nllb.EnvoyProxy.KonnectivityServerBindPort)
-	}
 
 	e.config = &envoyConfig{
 		envoyParams{
 			e.dir,
 			loopbackIP,
 			uint16(profile.NodeLocalLoadBalancing.EnvoyProxy.APIServerBindPort),
-			konnectivityBindPort,
 		},
 		envoyPodParams{
 			*nllb.EnvoyProxy.Image,
 			nllb.EnvoyProxy.ImagePullPolicy,
 		},
 		envoyFilesParams{
-			konnectivityServerPort: profile.Konnectivity.AgentPort,
-			apiServers:             apiServers,
+			apiServers: apiServers,
 		},
 	}
 
@@ -216,17 +204,13 @@ func (e *envoyProxy) stop() {
 
 func writeEnvoyConfigFiles(params *envoyParams, filesParams *envoyFilesParams) error {
 	data := struct {
-		BindIP                     net.IP
-		APIServerBindPort          uint16
-		KonnectivityServerBindPort uint16
-		KonnectivityServerPort     uint16
-		UpstreamServers            []k0snet.HostPort
+		BindIP            net.IP
+		APIServerBindPort uint16
+		UpstreamServers   []k0snet.HostPort
 	}{
-		BindIP:                     params.bindIP,
-		APIServerBindPort:          params.apiServerBindPort,
-		KonnectivityServerBindPort: params.konnectivityServerBindPort,
-		KonnectivityServerPort:     filesParams.konnectivityServerPort,
-		UpstreamServers:            filesParams.apiServers,
+		BindIP:            params.bindIP,
+		APIServerBindPort: params.apiServerBindPort,
+		UpstreamServers:   filesParams.apiServers,
 	}
 
 	var errs error
@@ -262,9 +246,6 @@ func (e *envoyProxy) provision() error {
 func makePodManifest(params *envoyParams, podParams *envoyPodParams) corev1.Pod {
 	ports := []corev1.ContainerPort{
 		{Name: "api-server", ContainerPort: int32(params.apiServerBindPort), Protocol: corev1.ProtocolTCP},
-	}
-	if params.konnectivityServerBindPort != 0 {
-		ports = append(ports, corev1.ContainerPort{Name: "konnectivity", ContainerPort: int32(params.konnectivityServerBindPort), Protocol: corev1.ProtocolTCP})
 	}
 	return corev1.Pod{
 		TypeMeta: metav1.TypeMeta{APIVersion: "v1", Kind: "Pod"},
@@ -399,7 +380,6 @@ resources:
           address:
             socket_address:
               address: {{ printf "%q" .Host }}
-              port_value: {{ $remoteKonnectivityPort }}
       {{- else }} []{{ end }}
   health_checks:
   # FIXME: What would be a proper health check?

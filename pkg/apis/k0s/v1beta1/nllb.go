@@ -24,7 +24,6 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/validation"
 	"k8s.io/apimachinery/pkg/util/validation/field"
-	"k8s.io/utils/pointer"
 )
 
 // NodeLocalLoadBalancing defines the configuration options related to k0s's
@@ -133,16 +132,6 @@ type EnvoyProxy struct {
 	// +kubebuilder:validation:Minimum=1
 	// +kubebuilder:validation:Maximum=65535
 	APIServerBindPort int32 `json:"apiServerBindPort,omitempty"`
-
-	// konnectivityServerBindPort is the port number on which to bind the Envoy
-	// load balancer for the konnectivity server to on a worker's loopback
-	// interface. This must be a valid port number, 0 < x < 65536.
-	// Default: 7132
-	// +optional
-	// +kubebuilder:default=7132
-	// +kubebuilder:validation:Minimum=1
-	// +kubebuilder:validation:Maximum=65535
-	KonnectivityServerBindPort *int32 `json:"konnectivityServerBindPort,omitempty"`
 }
 
 // DefaultEnvoyProxy returns the default envoy proxy configuration.
@@ -179,9 +168,7 @@ func (p *EnvoyProxy) setDefaults() {
 	if p.APIServerBindPort == 0 {
 		p.APIServerBindPort = 7443
 	}
-	if p.KonnectivityServerBindPort == nil {
-		p.KonnectivityServerBindPort = pointer.Int32(7132)
-	}
+
 }
 
 func (p *EnvoyProxy) Validate(path *field.Path) (errs field.ErrorList) {
@@ -213,15 +200,6 @@ func (p *EnvoyProxy) Validate(path *field.Path) (errs field.ErrorList) {
 		path := path.Child("apiServerBindPort")
 		for _, detail := range details {
 			errs = append(errs, field.Invalid(path, p.APIServerBindPort, detail))
-		}
-	}
-
-	if p.KonnectivityServerBindPort != nil {
-		if details := validation.IsValidPortNum(int(*p.KonnectivityServerBindPort)); len(details) > 0 {
-			path := path.Child("konnectivityServerBindPort")
-			for _, detail := range details {
-				errs = append(errs, field.Invalid(path, p.KonnectivityServerBindPort, detail))
-			}
 		}
 	}
 

@@ -111,7 +111,6 @@ func DefaultLogLevels() map[string]string {
 	return map[string]string{
 		"etcd":                    "info",
 		"containerd":              "info",
-		"konnectivity-server":     "1",
 		"kube-apiserver":          "1",
 		"kube-controller-manager": "1",
 		"kube-scheduler":          "1",
@@ -174,8 +173,6 @@ var availableComponents = []string{
 	constant.CoreDNSComponentname,
 	constant.CsrApproverComponentName,
 	constant.APIEndpointReconcilerComponentName,
-	constant.HelmComponentName,
-	constant.KonnectivityServerComponentName,
 	constant.KubeControllerManagerComponentName,
 	constant.KubeProxyComponentName,
 	constant.KubeSchedulerComponentName,

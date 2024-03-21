@@ -22,14 +22,12 @@ import (
 	"github.com/iscas-fork/k0s/internal/pkg/net"
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	logsv1 "k8s.io/component-base/logs/api/v1"
 	kubeletv1beta1 "k8s.io/kubelet/config/v1beta1"
-	"k8s.io/utils/pointer"
-
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 func TestToConfigMapData(t *testing.T) {
@@ -57,7 +55,6 @@ func TestFromConfigMapData(t *testing.T) {
 			"apiServerAddresses":     "1",
 			"kubeletConfiguration":   "2",
 			"nodeLocalLoadBalancing": "3",
-			"konnectivity":           "4",
 		}
 
 		config, err := FromConfigMapData(data)
@@ -88,20 +85,6 @@ type roundtripTest struct {
 }
 
 var roundtripTests = []roundtripTest{
-	{"empty",
-		&Profile{Konnectivity: Konnectivity{AgentPort: 1337}},
-		map[string]string{"konnectivity": `{"agentPort":1337}`}},
-	{
-		"empty_servers",
-		&Profile{
-			APIServerAddresses: []net.HostPort{},
-			Konnectivity:       Konnectivity{AgentPort: 1337},
-		},
-		map[string]string{
-			"apiServerAddresses": "[]",
-			"konnectivity":       `{"agentPort":1337}`,
-		},
-	},
 	{
 		"servers",
 		&Profile{
@@ -109,11 +92,9 @@ var roundtripTests = []roundtripTest{
 				makeHostPort("127.0.0.1", 6443),
 				makeHostPort("127.0.0.2", 7443),
 			},
-			Konnectivity: Konnectivity{AgentPort: 1337},
 		},
 		map[string]string{
 			"apiServerAddresses": `["127.0.0.1:6443","127.0.0.2:7443"]`,
-			"konnectivity":       `{"agentPort":1337}`,
 		},
 	},
 	{
@@ -131,11 +112,9 @@ var roundtripTests = []roundtripTest{
 					},
 				},
 			},
-			Konnectivity: Konnectivity{AgentPort: 1337},
 		},
 		map[string]string{
 			"kubeletConfiguration": `{"syncFrequency":"0s","fileCheckFrequency":"0s","httpCheckFrequency":"0s","authentication":{"x509":{},"webhook":{"cacheTTL":"0s"},"anonymous":{}},"authorization":{"webhook":{"cacheAuthorizedTTL":"0s","cacheUnauthorizedTTL":"0s"}},"streamingConnectionIdleTimeout":"0s","nodeStatusUpdateFrequency":"0s","nodeStatusReportFrequency":"0s","imageMinimumGCAge":"0s","imageMaximumGCAge":"0s","volumeStatsAggPeriod":"0s","cpuManagerReconcilePeriod":"0s","runtimeRequestTimeout":"0s","evictionPressureTransitionPeriod":"0s","memorySwap":{},"logging":{"flushFrequency":0,"verbosity":0,"options":{"json":{"infoBufferSize":"0"}}},"shutdownGracePeriod":"0s","shutdownGracePeriodCriticalPods":"0s","containerRuntimeEndpoint":""}`,
-			"konnectivity":         `{"agentPort":1337}`,
 		},
 	},
 	{
@@ -149,25 +128,13 @@ var roundtripTests = []roundtripTest{
 						Image:   "example.com/image",
 						Version: "latest",
 					},
-					ImagePullPolicy:            corev1.PullAlways,
-					APIServerBindPort:          4711,
-					KonnectivityServerBindPort: pointer.Int32(1337),
+					ImagePullPolicy:   corev1.PullAlways,
+					APIServerBindPort: 4711,
 				},
 			},
-			Konnectivity: Konnectivity{AgentPort: 1337},
 		},
 		map[string]string{
-			"nodeLocalLoadBalancing": `{"enabled":true,"type":"EnvoyProxy","envoyProxy":{"image":{"image":"example.com/image","version":"latest"},"imagePullPolicy":"Always","apiServerBindPort":4711,"konnectivityServerBindPort":1337}}`,
-			"konnectivity":           `{"agentPort":1337}`,
-		},
-	},
-	{
-		"konnectivity",
-		&Profile{
-			Konnectivity: Konnectivity{Enabled: true, AgentPort: 1337},
-		},
-		map[string]string{
-			"konnectivity": `{"enabled":true,"agentPort":1337}`,
+			"nodeLocalLoadBalancing": `{"enabled":true,"type":"EnvoyProxy","envoyProxy":{"image":{"image":"example.com/image","version":"latest"},"imagePullPolicy":"Always","apiServerBindPort":4711}}`,
 		},
 	},
 }

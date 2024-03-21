@@ -25,7 +25,6 @@ import (
 	"github.com/iscas-fork/k0s/internal/pkg/net"
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 
-	"k8s.io/apimachinery/pkg/util/validation"
 	"k8s.io/apimachinery/pkg/util/validation/field"
 	kubeletv1beta1 "k8s.io/kubelet/config/v1beta1"
 
@@ -38,7 +37,6 @@ type Profile struct {
 	APIServerAddresses     []net.HostPort
 	KubeletConfiguration   kubeletv1beta1.KubeletConfiguration
 	NodeLocalLoadBalancing *v1beta1.NodeLocalLoadBalancing
-	Konnectivity           Konnectivity
 	PauseImage             *v1beta1.ImageSpec
 }
 
@@ -71,25 +69,6 @@ func (p *Profile) Validate(path *field.Path) (errs field.ErrorList) {
 	}
 
 	errs = append(errs, p.NodeLocalLoadBalancing.Validate(path.Child("nodeLocalLoadBalancing"))...)
-	errs = append(errs, p.Konnectivity.Validate(path.Child("konnectivity"))...)
-
-	return
-}
-
-type Konnectivity struct {
-	Enabled   bool   `json:"enabled,omitempty"`
-	AgentPort uint16 `json:"agentPort,omitempty"`
-}
-
-func (k *Konnectivity) Validate(path *field.Path) (errs field.ErrorList) {
-	if k == nil {
-		return
-	}
-
-	agentPort := int(k.AgentPort)
-	for _, msg := range validation.IsValidPortNum(agentPort) {
-		errs = append(errs, field.Invalid(path.Child("agentPort"), agentPort, msg))
-	}
 
 	return
 }
@@ -157,7 +136,6 @@ func forEachConfigMapEntry(profile *Profile, f func(fieldName string, ptr any)) 
 		"apiServerAddresses":     &profile.APIServerAddresses,
 		"kubeletConfiguration":   &profile.KubeletConfiguration,
 		"nodeLocalLoadBalancing": &profile.NodeLocalLoadBalancing,
-		"konnectivity":           &profile.Konnectivity,
 		"pauseImage":             &profile.PauseImage,
 	} {
 		f(fieldName, ptr)

@@ -194,7 +194,6 @@ spec:
   scheduler: null
   installConfig: null
   telemetry: null
-  konnectivity: null
 `
 
 	c, err := ConfigFromString(yamlData)
@@ -208,7 +207,6 @@ spec:
 	assert.Equal(t, DefaultSchedulerSpec(), c.Spec.Scheduler)
 	assert.Equal(t, DefaultInstallSpec(), c.Spec.Install)
 	assert.Equal(t, DefaultClusterTelemetry(), c.Spec.Telemetry)
-	assert.Equal(t, DefaultKonnectivitySpec(), c.Spec.Konnectivity)
 
 }
 

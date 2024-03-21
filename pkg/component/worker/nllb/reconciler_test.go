@@ -68,9 +68,6 @@ func TestReconciler_Lifecycle(t *testing.T) {
 					Type:       v1beta1.NllbTypeEnvoyProxy,
 					EnvoyProxy: v1beta1.DefaultEnvoyProxy(),
 				},
-				Konnectivity: workerconfig.Konnectivity{
-					AgentPort: 1337,
-				},
 			},
 		)
 		require.NoError(t, err)
@@ -319,9 +316,6 @@ func TestReconciler_ConfigMgmt(t *testing.T) {
 					Type:       v1beta1.NllbTypeEnvoyProxy,
 					EnvoyProxy: v1beta1.DefaultEnvoyProxy(),
 				},
-				Konnectivity: workerconfig.Konnectivity{
-					AgentPort: 1337,
-				},
 			},
 		)
 		require.NoError(t, err)
@@ -455,9 +449,6 @@ func TestReconciler_APIServerAddressFromKubeconfig(t *testing.T) {
 				Enabled:    true,
 				Type:       v1beta1.NllbTypeEnvoyProxy,
 				EnvoyProxy: v1beta1.DefaultEnvoyProxy(),
-			},
-			Konnectivity: workerconfig.Konnectivity{
-				AgentPort: 1337,
 			},
 		},
 	)

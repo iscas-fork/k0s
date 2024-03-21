@@ -101,8 +101,6 @@ const (
 	ControlAPIComponentName            = "control-api"
 	CoreDNSComponentname               = "coredns"
 	CsrApproverComponentName           = "csr-approver"
-	HelmComponentName                  = "helm"
-	KonnectivityServerComponentName    = "konnectivity-server"
 	KubeControllerManagerComponentName = "kube-controller-manager"
 	KubeProxyComponentName             = "kube-proxy"
 	KubeSchedulerComponentName         = "kube-scheduler"
@@ -111,7 +109,6 @@ const (
 	NetworkProviderComponentName       = "network-provider"
 	SystemRbacComponentName            = "system-rbac"
 	NodeRoleComponentName              = "node-role"
-	WindowsNodeComponentName           = "windows-node-role"
 	AutopilotComponentName             = "autopilot"
 
 	// ClusterConfigNamespace is the namespace where we expect to find the ClusterConfig CRs

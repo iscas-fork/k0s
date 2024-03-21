@@ -63,7 +63,6 @@ func (s *ImageSpec) URI() string {
 
 // ClusterImages sets docker images for addon components
 type ClusterImages struct {
-	Konnectivity  ImageSpec `json:"konnectivity"`
 	PushGateway   ImageSpec `json:"pushgateway"`
 	MetricsServer ImageSpec `json:"metricsserver"`
 	KubeProxy     ImageSpec `json:"kubeproxy"`
@@ -123,7 +122,6 @@ func (ci *ClusterImages) overrideImageRepositories() {
 	override := func(dst *ImageSpec) {
 		dst.Image = overrideRepository(ci.Repository, dst.Image)
 	}
-	override(&ci.Konnectivity)
 	override(&ci.MetricsServer)
 	override(&ci.KubeProxy)
 	override(&ci.CoreDNS)
@@ -152,10 +150,6 @@ type KubeRouterImageSpec struct {
 func DefaultClusterImages() *ClusterImages {
 	return &ClusterImages{
 		DefaultPullPolicy: "IfNotPresent",
-		Konnectivity: ImageSpec{
-			Image:   constant.KonnectivityImage,
-			Version: constant.KonnectivityImageVersion,
-		},
 		PushGateway: ImageSpec{
 			Image:   constant.PushGatewayImage,
 			Version: constant.PushGatewayImageVersion,

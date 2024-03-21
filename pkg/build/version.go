@@ -24,4 +24,3 @@ var ContainerdVersion string
 var KubernetesVersion string
 var KineVersion string
 var EtcdVersion string
-var KonnectivityVersion string

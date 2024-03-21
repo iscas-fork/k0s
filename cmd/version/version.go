@@ -38,13 +38,12 @@ func NewVersionCmd() *cobra.Command {
 
 		Run: func(cmd *cobra.Command, args []string) {
 			info := versionInfo{
-				Version:      build.Version,
-				Runc:         build.RuncVersion,
-				Containerd:   build.ContainerdVersion,
-				Kubernetes:   build.KubernetesVersion,
-				Kine:         build.KineVersion,
-				Etcd:         build.EtcdVersion,
-				Konnectivity: build.KonnectivityVersion,
+				Version:    build.Version,
+				Runc:       build.RuncVersion,
+				Containerd: build.ContainerdVersion,
+				Kubernetes: build.KubernetesVersion,
+				Kine:       build.KineVersion,
+				Etcd:       build.EtcdVersion,
 			}
 
 			info.Print(cmd.OutOrStdout())
@@ -58,13 +57,12 @@ func NewVersionCmd() *cobra.Command {
 }
 
 type versionInfo struct {
-	Version      string `json:"k0s,omitempty"`
-	Runc         string `json:"runc,omitempty"`
-	Containerd   string `json:"containerd,omitempty"`
-	Kubernetes   string `json:"kubernetes,omitempty"`
-	Kine         string `json:"kine,omitempty"`
-	Etcd         string `json:"etcd,omitempty"`
-	Konnectivity string `json:"konnectivity,omitempty"`
+	Version    string `json:"k0s,omitempty"`
+	Runc       string `json:"runc,omitempty"`
+	Containerd string `json:"containerd,omitempty"`
+	Kubernetes string `json:"kubernetes,omitempty"`
+	Kine       string `json:"kine,omitempty"`
+	Etcd       string `json:"etcd,omitempty"`
 }
 
 func (v versionInfo) Print(w io.Writer) {
@@ -75,7 +73,6 @@ func (v versionInfo) Print(w io.Writer) {
 		fmt.Fprintln(w, "kubernetes :", v.Kubernetes)
 		fmt.Fprintln(w, "kine :", v.Kine)
 		fmt.Fprintln(w, "etcd :", v.Etcd)
-		fmt.Fprintln(w, "konnectivity :", v.Konnectivity)
 	} else if isJsn {
 		jsn, _ := json.MarshalIndent(v, "", "   ")
 		fmt.Fprintln(w, string(jsn))
