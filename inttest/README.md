@@ -1,6 +1,6 @@
 # Integration tests a.k.a e2e testing
 
-This folder is the root of k0s integration tests. These tests are such that run the actual k0s clusters, currently using [bootloose](https://github.com/iscas-fork/bootloose) as the target environment.
+This folder is the root of k0s integration tests. These tests are such that run the actual k0s clusters, currently using [bootloose](https://github.com/k0sproject/bootloose) as the target environment.
 
 ## Running the tests
 

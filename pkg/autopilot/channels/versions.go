@@ -15,7 +15,7 @@
 package channels
 
 import (
-	"github.com/iscas-fork/version"
+	"github.com/k0sproject/version"
 )
 
 type DownloadURL struct {

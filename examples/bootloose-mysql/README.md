@@ -7,7 +7,7 @@ In this example we're gonna use bootloose to simulate 2-node control plane setup
 ## Prep work
 
 1. Install docker
-2. Get bootloose from https://github.com/iscas-fork/bootloose
+2. Get bootloose from https://github.com/k0sproject/bootloose
 3. Build k0s bin: Run `make build` at repo root
 
 ## Mysql

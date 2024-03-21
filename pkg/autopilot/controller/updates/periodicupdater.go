@@ -29,7 +29,7 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	crcli "sigs.k8s.io/controller-runtime/pkg/client"
 
-	"github.com/iscas-fork/version"
+	"github.com/k0sproject/version"
 )
 
 type periodicUpdater struct {

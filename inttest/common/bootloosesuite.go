@@ -56,8 +56,8 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"sigs.k8s.io/yaml"
 
-	"github.com/iscas-fork/bootloose/pkg/cluster"
-	"github.com/iscas-fork/bootloose/pkg/config"
+	"github.com/k0sproject/bootloose/pkg/cluster"
+	"github.com/k0sproject/bootloose/pkg/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"

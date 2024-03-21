@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/iscas-fork/dig"
+	"github.com/k0sproject/dig"
 	"github.com/iscas-fork/k0s/internal/testutil"
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/iscas-fork/k0s/pkg/config"
