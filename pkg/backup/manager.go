@@ -92,8 +92,6 @@ func (bm *Manager) discoverSteps(configFilePath string, nodeSpec *v1beta1.Cluste
 		vars.CertRootDir,
 		vars.ManifestsDir,
 		vars.OCIBundleDir,
-		vars.HelmHome,
-		vars.HelmRepositoryConfig,
 	} {
 		if action == "backup" {
 			logrus.Infof("adding `%s` path to the backup archive", path)

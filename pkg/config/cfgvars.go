@@ -59,11 +59,6 @@ type CfgVars struct {
 	StartupConfigPath          string // The path to the config file used at startup
 	EnableDynamicConfig        bool   // EnableDynamicConfig enables dynamic config
 
-	// Helm config
-	HelmHome             string
-	HelmRepositoryCache  string
-	HelmRepositoryConfig string
-
 	nodeConfig *v1beta1.ClusterConfig
 	origin     CfgVarsOriginType
 }
@@ -158,7 +153,6 @@ func NewCfgVars(cobraCmd command, dirs ...string) (*CfgVars, error) {
 	}
 
 	certDir := filepath.Join(dataDir, "pki")
-	helmHome := filepath.Join(dataDir, "helmhome")
 
 	vars := &CfgVars{
 		AdminKubeConfigPath:        filepath.Join(certDir, "admin.conf"),
@@ -178,11 +172,6 @@ func NewCfgVars(cobraCmd command, dirs ...string) (*CfgVars, error) {
 		RuntimeConfigPath:          filepath.Join(runDir, "k0s.yaml"),
 		StatusSocketPath:           filepath.Join(runDir, "status.sock"),
 		StartupConfigPath:          constant.K0sConfigPathDefault,
-
-		// Helm Config
-		HelmHome:             helmHome,
-		HelmRepositoryCache:  filepath.Join(helmHome, "cache"),
-		HelmRepositoryConfig: filepath.Join(helmHome, "repositories.yaml"),
 
 		origin: CfgVarsOriginDefault,
 	}
