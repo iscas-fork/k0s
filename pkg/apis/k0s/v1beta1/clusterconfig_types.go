@@ -48,7 +48,6 @@ type ClusterSpec struct {
 	Telemetry         *ClusterTelemetry      `json:"telemetry"`
 	Install           *InstallSpec           `json:"installConfig,omitempty"`
 	Images            *ClusterImages         `json:"images,omitempty"`
-	Extensions        *ClusterExtensions     `json:"extensions,omitempty"`
 	Konnectivity      *KonnectivitySpec      `json:"konnectivity,omitempty"`
 	FeatureGates      FeatureGates           `json:"featureGates,omitempty"`
 }
@@ -236,12 +235,6 @@ func (c *ClusterConfig) UnmarshalJSON(data []byte) error {
 	if jc.Spec.Storage == nil {
 		jc.Spec.Storage = DefaultStorageSpec()
 	}
-	if jc.Spec.Extensions == nil {
-		jc.Spec.Extensions = DefaultExtensions()
-	}
-	if jc.Spec.Extensions.Storage == nil {
-		jc.Spec.Extensions.Storage = DefaultStorageExtension()
-	}
 	if jc.Spec.Network == nil {
 		jc.Spec.Network = DefaultNetwork()
 	}
@@ -282,7 +275,6 @@ func DefaultClusterSpec(defaultStorage ...*StorageSpec) *ClusterSpec {
 	}
 
 	spec := &ClusterSpec{
-		Extensions:        DefaultExtensions(),
 		Storage:           storage,
 		Network:           DefaultNetwork(),
 		API:               DefaultAPISpec(),
@@ -319,7 +311,6 @@ func (s *ClusterSpec) Validate() (errs []error) {
 		"workerProfiles":    s.WorkerProfiles,
 		"telemetry":         s.Telemetry,
 		"install":           s.Install,
-		"extensions":        s.Extensions,
 		"konnectivity":      s.Konnectivity,
 	} {
 		for _, err := range field.Validate() {

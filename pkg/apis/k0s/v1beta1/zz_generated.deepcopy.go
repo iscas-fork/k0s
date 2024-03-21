@@ -281,9 +281,6 @@ func (in *ClusterSpec) DeepCopyInto(out *ClusterSpec) {
 		*out = new(ClusterImages)
 		**out = **in
 	}
-	if in.Extensions != nil {
-		in, out := &in.Extensions, &out.Extensions
-	}
 	if in.Konnectivity != nil {
 		in, out := &in.Konnectivity, &out.Konnectivity
 		*out = new(KonnectivitySpec)

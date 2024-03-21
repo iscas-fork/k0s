@@ -80,7 +80,6 @@ spec:
                       you want to pass down to the Kubernetes controller manager process
                     type: object
                 type: object
-              extensions: {}
               featureGates:
                 description: FeatureGates collection of feature gate specs
                 items:

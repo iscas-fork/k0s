@@ -212,7 +212,6 @@ spec:
 	assert.Equal(t, DefaultStorageSpec(), c.Spec.Storage)
 	assert.Equal(t, DefaultNetwork(), c.Spec.Network)
 	assert.Equal(t, DefaultAPISpec(), c.Spec.API)
-	assert.Equal(t, DefaultExtensions(), c.Spec.Extensions)
 	assert.Equal(t, DefaultStorageSpec(), c.Spec.Storage)
 	assert.Equal(t, DefaultControllerManagerSpec(), c.Spec.ControllerManager)
 	assert.Equal(t, DefaultSchedulerSpec(), c.Spec.Scheduler)
@@ -222,7 +221,6 @@ spec:
 
 	e, err := ConfigFromString(extensionsYamlData)
 	assert.NoError(t, err)
-	assert.Equal(t, DefaultExtensions(), e.Spec.Extensions)
 }
 
 func TestWorkerProfileConfig(t *testing.T) {

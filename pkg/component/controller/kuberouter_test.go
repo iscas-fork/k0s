@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/k0sproject/dig"
 	"github.com/iscas-fork/k0s/internal/testutil"
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/iscas-fork/k0s/pkg/config"
+	"github.com/k0sproject/dig"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	v1 "k8s.io/api/apps/v1"

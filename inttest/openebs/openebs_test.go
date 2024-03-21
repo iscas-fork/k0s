@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/k0sproject/bootloose/pkg/config"
 	"github.com/iscas-fork/k0s/inttest/common"
 	"github.com/iscas-fork/k0s/pkg/kubernetes/watch"
+	"github.com/k0sproject/bootloose/pkg/config"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/client-go/kubernetes"
 
