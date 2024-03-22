@@ -25,15 +25,11 @@ import (
 
 	"k8s.io/utils/strings/slices"
 
-	"github.com/sirupsen/logrus"
-
-	"github.com/iscas-fork/k0s/internal/pkg/iface"
 	"github.com/iscas-fork/k0s/pkg/constant"
 )
 
 // supported storage types
 const (
-	EtcdStorageType = "etcd"
 	KineStorageType = "kine"
 )
 
@@ -41,7 +37,6 @@ var _ Validateable = (*StorageSpec)(nil)
 
 // StorageSpec defines the storage related config options
 type StorageSpec struct {
-	Etcd *EtcdConfig `json:"etcd"`
 	Kine *KineConfig `json:"kine,omitempty"`
 
 	// Type of the data store (valid values:etcd or kine)
@@ -57,17 +52,13 @@ type KineConfig struct {
 // DefaultStorageSpec creates StorageSpec with sane defaults
 func DefaultStorageSpec() *StorageSpec {
 	return &StorageSpec{
-		Type: EtcdStorageType,
-		Etcd: DefaultEtcdConfig(),
+		Type: KineStorageType,
+		Kine: DefaultKineConfig("/var/lib/system/sqlite"),
 	}
 }
 
 // IsJoinable returns true only if the storage config is such that another controller can join the cluster
 func (s *StorageSpec) IsJoinable() bool {
-	if s.Type == EtcdStorageType {
-		return !s.Etcd.IsExternalClusterUsed()
-	}
-
 	if strings.HasPrefix(s.Kine.DataSource, "sqlite:") {
 		return false
 	}
@@ -85,8 +76,6 @@ func (s *StorageSpec) IsJoinable() bool {
 
 // UnmarshalJSON sets in some sane defaults when unmarshaling the data from json
 func (s *StorageSpec) UnmarshalJSON(data []byte) error {
-	s.Type = EtcdStorageType
-	s.Etcd = DefaultEtcdConfig()
 
 	type storage StorageSpec
 	jc := (*storage)(s)
@@ -108,11 +97,6 @@ func (s *StorageSpec) Validate() []error {
 	}
 
 	var errors []error
-
-	if s.Etcd != nil && s.Etcd.ExternalCluster != nil {
-		errors = append(errors, validateRequiredProperties(s.Etcd.ExternalCluster)...)
-		errors = append(errors, validateOptionalTLSProperties(s.Etcd.ExternalCluster)...)
-	}
 
 	return errors
 }
@@ -145,20 +129,6 @@ type ExternalCluster struct {
 
 	// ClientKeyFile is the host path to a file with TLS key for etcd client
 	ClientKeyFile string `json:"clientKeyFile"`
-}
-
-// DefaultEtcdConfig creates EtcdConfig with sane defaults
-func DefaultEtcdConfig() *EtcdConfig {
-	addr, err := iface.FirstPublicAddress()
-	if err != nil {
-		logrus.Warnf("failed to resolve etcd peering address automatically, using loopback")
-		addr = "127.0.0.1"
-	}
-	return &EtcdConfig{
-		ExternalCluster: nil,
-		PeerAddress:     addr,
-		ExtraArgs:       make(map[string]string),
-	}
 }
 
 // DefaultKineConfig creates KineConfig with sane defaults

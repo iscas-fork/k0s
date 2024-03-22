@@ -96,14 +96,6 @@ func (m *Metrics) Init(_ context.Context) error {
 	}
 	m.jobs = append(m.jobs, j)
 
-	if m.storageType == v1beta1.EtcdStorageType {
-		etcdJob, err := m.newEtcdJob()
-		if err != nil {
-			return err
-		}
-		m.jobs = append(m.jobs, etcdJob)
-	}
-
 	if m.storageType == v1beta1.KineStorageType {
 		kineJob, err := m.newKineJob()
 		if err != nil {

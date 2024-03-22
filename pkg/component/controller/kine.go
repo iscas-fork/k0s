@@ -19,18 +19,13 @@ package controller
 import (
 	"context"
 	"fmt"
-	"net/url"
-	"os"
-	"path/filepath"
-	"time"
-
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/iscas-fork/k0s/pkg/component/manager"
 	"github.com/iscas-fork/k0s/pkg/config"
-	"github.com/iscas-fork/k0s/pkg/etcd"
-	clientv3 "go.etcd.io/etcd/client/v3"
-
 	"github.com/sirupsen/logrus"
+	"net/url"
+	"os"
+	"path/filepath"
 
 	"github.com/iscas-fork/k0s/internal/pkg/dir"
 	"github.com/iscas-fork/k0s/internal/pkg/users"
@@ -41,13 +36,12 @@ import (
 
 // Kine implement the component interface to run kine
 type Kine struct {
-	Config       *v1beta1.KineConfig
-	gid          int
-	K0sVars      *config.CfgVars
-	supervisor   supervisor.Supervisor
-	uid          int
-	bypassClient *etcd.Client
-	ctx          context.Context
+	Config     *v1beta1.KineConfig
+	gid        int
+	K0sVars    *config.CfgVars
+	supervisor supervisor.Supervisor
+	uid        int
+	ctx        context.Context
 }
 
 var _ manager.Component = (*Kine)(nil)
@@ -90,15 +84,6 @@ func (k *Kine) Init(_ context.Context) error {
 		}
 	}
 
-	k.bypassClient, err = etcd.NewClientWithConfig(clientv3.Config{
-		Endpoints: []string{(&url.URL{
-			Scheme: "unix", OmitHost: true,
-			Path: filepath.ToSlash(k.K0sVars.KineSocketPath),
-		}).String()},
-	})
-	if err != nil {
-		return fmt.Errorf("can't create bypass etcd client: %w", err)
-	}
 	return assets.Stage(k.K0sVars.BinDir, "kine", constant.BinDirMode)
 }
 
@@ -136,20 +121,5 @@ const hcKey = "/k0s-health-check"
 const hcValue = "value"
 
 func (k *Kine) Ready() error {
-	ok, err := k.bypassClient.Write(k.ctx, hcKey, hcValue, 64*time.Second)
-	if err != nil {
-		return fmt.Errorf("kine-etcd-health: %w", err)
-	}
-	if !ok {
-		logrus.Warningf("kine-etcd-health: health-check value was not written")
-	}
-
-	v, err := k.bypassClient.Read(k.ctx, hcKey)
-	if err != nil {
-		return fmt.Errorf("kine-etcd-health read: %w", err)
-	}
-	if realValue := string(v.Kvs[len(v.Kvs)-1].Value); realValue != hcValue {
-		return fmt.Errorf("kine-etcd-health read: value is invalid, got %s, expect %s", realValue, hcValue)
-	}
 	return nil
 }

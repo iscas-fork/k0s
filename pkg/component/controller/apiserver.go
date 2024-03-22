@@ -226,17 +226,6 @@ func getEtcdArgs(storage *v1beta1.StorageSpec, k0sVars *config.CfgVars) ([]strin
 			Path: filepath.ToSlash(k0sVars.KineSocketPath),
 		} // kine endpoint
 		args = append(args, fmt.Sprintf("--etcd-servers=%s", sockURL.String()))
-	case v1beta1.EtcdStorageType:
-		args = append(args, fmt.Sprintf("--etcd-servers=%s", storage.Etcd.GetEndpointsAsString()))
-		if storage.Etcd.IsTLSEnabled() {
-			args = append(args,
-				fmt.Sprintf("--etcd-cafile=%s", storage.Etcd.GetCaFilePath(k0sVars.EtcdCertDir)),
-				fmt.Sprintf("--etcd-certfile=%s", storage.Etcd.GetCertFilePath(k0sVars.CertRootDir)),
-				fmt.Sprintf("--etcd-keyfile=%s", storage.Etcd.GetKeyFilePath(k0sVars.CertRootDir)))
-		}
-		if storage.Etcd.IsExternalClusterUsed() {
-			args = append(args, fmt.Sprintf("--etcd-prefix=%s", storage.Etcd.ExternalCluster.EtcdPrefix))
-		}
 	default:
 		return nil, fmt.Errorf("invalid storage type: %s", storage.Type)
 	}

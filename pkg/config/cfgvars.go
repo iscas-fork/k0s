@@ -102,11 +102,7 @@ func WithCommand(cmd command) CfgVarOption {
 			c.EnableDynamicConfig = f
 		}
 
-		if f, err := flags.GetBool("single"); err == nil && f {
-			c.DefaultStorageType = v1beta1.KineStorageType
-		} else {
-			c.DefaultStorageType = v1beta1.EtcdStorageType
-		}
+		c.DefaultStorageType = v1beta1.KineStorageType
 	}
 }
 

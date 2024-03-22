@@ -52,7 +52,7 @@ LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.RuncVersion=$(runc_version)
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.ContainerdVersion=$(containerd_version)
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KubernetesVersion=$(kubernetes_version)
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KineVersion=$(kine_version)
-LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.EtcdVersion=$(etcd_version)
+#LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.EtcdVersion=$(etcd_version)
 #LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KonnectivityVersion=$(konnectivity_version)
 LD_FLAGS += -X "github.com/iscas-fork/k0s/pkg/build.EulaNotice=$(EULA_NOTICE)"
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/telemetry.segmentToken=$(SEGMENT_TOKEN)

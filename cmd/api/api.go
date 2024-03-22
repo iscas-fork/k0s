@@ -36,7 +36,6 @@ import (
 	"github.com/iscas-fork/k0s/pkg/apis/k0s/v1beta1"
 	"github.com/iscas-fork/k0s/pkg/config"
 	"github.com/iscas-fork/k0s/pkg/constant"
-	"github.com/iscas-fork/k0s/pkg/etcd"
 	kubeutil "github.com/iscas-fork/k0s/pkg/kubernetes"
 
 	corev1 "k8s.io/api/core/v1"
@@ -98,13 +97,6 @@ func (c *command) start() (err error) {
 	}
 	storage := nodeConfig.Spec.Storage
 
-	if storage.Type == v1beta1.EtcdStorageType && !storage.Etcd.IsExternalClusterUsed() {
-		// Only mount the etcd handler if we're running on internal etcd storage
-		// by default the mux will return 404 back which the caller should handle
-		mux.Handle(prefix+"/etcd/members", mw.AllowMethods(http.MethodPost)(
-			c.controllerHandler(c.etcdHandler())))
-	}
-
 	if storage.IsJoinable() {
 		mux.Handle(prefix+"/ca", mw.AllowMethods(http.MethodGet)(
 			c.controllerHandler(c.caHandler())))
@@ -128,62 +120,6 @@ func (c *command) start() (err error) {
 		filepath.Join(c.K0sVars.CertRootDir, "k0s-api.crt"),
 		filepath.Join(c.K0sVars.CertRootDir, "k0s-api.key"),
 	)
-}
-
-func (c *command) etcdHandler() http.Handler {
-	return http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
-		ctx := req.Context()
-		var etcdReq v1beta1.EtcdRequest
-		err := json.NewDecoder(req.Body).Decode(&etcdReq)
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-		logrus.Infof("etcd API, adding new member: %s", etcdReq.PeerAddress)
-		err = etcdReq.Validate()
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-
-		etcdClient, err := etcd.NewClient(c.K0sVars.CertRootDir, c.K0sVars.EtcdCertDir, nil)
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-
-		memberList, err := etcdClient.AddMember(ctx, etcdReq.Node, etcdReq.PeerAddress)
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-
-		etcdResp := v1beta1.EtcdResponse{
-			InitialCluster: memberList,
-		}
-
-		etcdCaCertPath, etcdCaCertKey := filepath.Join(c.K0sVars.EtcdCertDir, "ca.crt"), filepath.Join(c.K0sVars.EtcdCertDir, "ca.key")
-		etcdCACert, err := os.ReadFile(etcdCaCertPath)
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-		etcdCAKey, err := os.ReadFile(etcdCaCertKey)
-		if err != nil {
-			sendError(err, resp)
-			return
-		}
-
-		etcdResp.CA = v1beta1.CaResponse{
-			Key:  etcdCAKey,
-			Cert: etcdCACert,
-		}
-		resp.Header().Set("content-type", "application/json")
-		if err := json.NewEncoder(resp).Encode(etcdResp); err != nil {
-			sendError(err, resp)
-			return
-		}
-	})
 }
 
 func (c *command) kubeConfigHandler(apiAddress string) http.Handler {

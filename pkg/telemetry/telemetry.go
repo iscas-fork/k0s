@@ -88,7 +88,7 @@ func (c Component) collectTelemetry(ctx context.Context) (telemetryData, error) 
 
 func (c Component) getStorageType() string {
 	switch c.clusterConfig.Spec.Storage.Type {
-	case v1beta1.EtcdStorageType, v1beta1.KineStorageType:
+	case v1beta1.KineStorageType:
 		return c.clusterConfig.Spec.Storage.Type
 	}
 	return "unknown"

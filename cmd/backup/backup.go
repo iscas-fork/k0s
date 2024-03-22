@@ -51,13 +51,6 @@ func NewBackupCmd() *cobra.Command {
 				return err
 			}
 			c := (*command)(opts)
-			nodeConfig, err := c.K0sVars.NodeConfig()
-			if err != nil {
-				return err
-			}
-			if nodeConfig.Spec.Storage.Etcd.IsExternalClusterUsed() {
-				return fmt.Errorf("command 'k0s backup' does not support external etcd cluster")
-			}
 			return c.backup(savePath, cmd.OutOrStdout())
 		},
 	}

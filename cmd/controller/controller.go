@@ -174,10 +174,8 @@ func (c *command) start(ctx context.Context) error {
 
 	certificateManager := certificate.Manager{K0sVars: c.K0sVars}
 
-	var joinClient *token.JoinClient
-
 	if c.TokenArg != "" && c.needToJoin() {
-		joinClient, err = joinController(ctx, c.TokenArg, c.K0sVars.CertRootDir)
+		_, err = joinController(ctx, c.TokenArg, c.K0sVars.CertRootDir)
 		if err != nil {
 			return fmt.Errorf("failed to join controller: %v", err)
 		}
@@ -199,14 +197,6 @@ func (c *command) start(ctx context.Context) error {
 		storageBackend = &controller.Kine{
 			Config:  nodeConfig.Spec.Storage.Kine,
 			K0sVars: c.K0sVars,
-		}
-	case v1beta1.EtcdStorageType:
-		storageBackend = &controller.Etcd{
-			CertManager: certificateManager,
-			Config:      nodeConfig.Spec.Storage.Etcd,
-			JoinClient:  joinClient,
-			K0sVars:     c.K0sVars,
-			LogLevel:    c.Logging["etcd"],
 		}
 	default:
 		return fmt.Errorf("invalid storage type: %s", nodeConfig.Spec.Storage.Type)
