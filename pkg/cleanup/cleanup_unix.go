@@ -43,17 +43,17 @@ type containerdConfig struct {
 }
 
 func NewConfig(k0sVars *config.CfgVars, cfgFile string, criSocketPath string) (*Config, error) {
-	runDir := "/run/k0s" // https://github.com/iscas-fork/k0s/pull/591/commits/c3f932de85a0b209908ad39b817750efc4987395
+	runDir := "/var/run" // https://github.com/iscas-fork/k0s/pull/591/commits/c3f932de85a0b209908ad39b817750efc4987395
 
 	var err error
 	var containerdCfg *containerdConfig
 	var runtimeType string
 
 	if criSocketPath == "" {
-		criSocketPath = fmt.Sprintf("unix://%s/containerd.sock", runDir)
+		criSocketPath = fmt.Sprintf("unix://%s/isulad.sock", runDir)
 		containerdCfg = &containerdConfig{
 			binPath:    fmt.Sprintf("%s/%s", k0sVars.DataDir, "bin/containerd"),
-			socketPath: fmt.Sprintf("%s/containerd.sock", runDir),
+			socketPath: fmt.Sprintf("%s/isulad.sock", runDir),
 		}
 		runtimeType = "cri"
 	} else {

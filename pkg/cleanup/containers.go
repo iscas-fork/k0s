@@ -19,18 +19,16 @@ package cleanup
 import (
 	"errors"
 	"fmt"
+	"github.com/avast/retry-go"
+	"github.com/iscas-fork/k0s/internal/pkg/file"
+	"github.com/sirupsen/logrus"
 	"io/fs"
+	"k8s.io/mount-utils"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
-
-	"github.com/iscas-fork/k0s/internal/pkg/file"
-
-	"github.com/avast/retry-go"
-	"github.com/sirupsen/logrus"
-	"k8s.io/mount-utils"
 )
 
 type containers struct {
@@ -133,7 +131,6 @@ func (c *containers) stopContainerd() {
 	}
 	logrus.Debug("successfully stopped containerd")
 }
-
 func (c *containers) stopAllContainers() error {
 	var msg []error
 	logrus.Debugf("trying to list all pods")
