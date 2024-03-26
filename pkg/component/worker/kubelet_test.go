@@ -44,16 +44,16 @@ func TestCRISocketParsing(t *testing.T) {
 		},
 		{
 			name:      "containerd",
-			input:     "remote:unix:///var/run/mke/containerd.sock",
+			input:     "remote:unix:///var/run/mke/isulad.sock,
 			expType:   "remote",
-			expSocket: "unix:///var/run/mke/containerd.sock",
+			expSocket: "unix:///var/run/mke/isulad.sock,
 			err:       false,
 		},
 		{
 			name:      "unknown-type",
-			input:     "foobar:unix:///var/run/mke/containerd.sock",
+			input:     "foobar:unix:///var/run/mke/isulad.sock,
 			expType:   "remote",
-			expSocket: "unix:///var/run/mke/containerd.sock",
+			expSocket: "unix:///var/run/mke/isulad.sock,
 			err:       true,
 		},
 	}

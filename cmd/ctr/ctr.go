@@ -58,7 +58,7 @@ func setDefaultValues(runDir string, flags []cli.Flag) {
 	for i, flag := range flags {
 		if f, ok := flag.(cli.StringFlag); ok {
 			if f.Name == "address, a" {
-				f.Value = path.Join(runDir, "containerd.sock")
+				f.Value = path.Join(runDir, "isulad.sock")
 				flags[i] = f
 			} else if f.Name == "namespace, n" {
 				f.Value = "k8s.io"

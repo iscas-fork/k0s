@@ -49,7 +49,7 @@ state = "/run/k0s/containerd"
 ...
 
 [grpc]
-  address = "/run/k0s/containerd.sock"
+  address = "/run/k0s/isulad.sock
 ```
 
 ## k0s managed dynamic runtime configuration

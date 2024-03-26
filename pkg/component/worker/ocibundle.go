@@ -67,7 +67,7 @@ func (a *OCIBundleReconciler) Start(ctx context.Context) error {
 		return nil
 	}
 	var client *containerd.Client
-	sock := filepath.Join(a.k0sVars.RunDir, "containerd.sock")
+	sock := filepath.Join(a.k0sVars.RunDir, "isulad.sock")
 	err = retry.Do(func() error {
 		client, err = containerd.New(sock, containerd.WithDefaultNamespace("k8s.io"), containerd.WithDefaultPlatform(platforms.OnlyStrict(platforms.DefaultSpec())))
 		if err != nil {

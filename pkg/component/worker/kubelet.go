@@ -190,7 +190,7 @@ func (k *Kubelet) Start(ctx context.Context) error {
 		// on windows this cli flag is not supported
 		// Still use this deprecated cAdvisor flag that the kubelet leaks until
 		// KEP 2371 lands. ("cAdvisor-less, CRI-full Container and Pod Stats")
-		args["--containerd"] = filepath.Join(k.K0sVars.RunDir, "containerd.sock")
+		args["--containerd"] = filepath.Join(k.K0sVars.RunDir, "isulad.sock")
 	}
 
 	// We only support external providers
@@ -241,7 +241,7 @@ func (k *Kubelet) prepareLocalKubeletConfig(kubeletConfigData kubeletConfig) (st
 	preparedConfig.StaticPodURL = kubeletConfigData.StaticPodURL
 
 	if k.CRISocket == "" && runtime.GOOS != "windows" {
-		socketPath := filepath.Join(k.K0sVars.RunDir, "containerd.sock")
+		socketPath := filepath.Join(k.K0sVars.RunDir, "isulad.sock")
 		preparedConfig.ContainerRuntimeEndpoint = "unix://" + filepath.ToSlash(socketPath)
 	} else if k.CRISocket == "" && runtime.GOOS == "windows" {
 		preparedConfig.ContainerRuntimeEndpoint = "npipe:////./pipe/containerd-containerd"

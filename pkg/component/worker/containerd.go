@@ -146,7 +146,7 @@ func (c *ContainerD) Start(ctx context.Context) error {
 			Args: []string{
 				fmt.Sprintf("--root=%s", filepath.Join(c.K0sVars.DataDir, "containerd")),
 				fmt.Sprintf("--state=%s", filepath.Join(c.K0sVars.RunDir, "containerd")),
-				fmt.Sprintf("--address=%s", filepath.Join(c.K0sVars.RunDir, "containerd.sock")),
+				fmt.Sprintf("--address=%s", filepath.Join(c.K0sVars.RunDir, "isulad.sock")),
 				fmt.Sprintf("--log-level=%s", c.LogLevel),
 				fmt.Sprintf("--config=%s", c.confPath),
 			},
