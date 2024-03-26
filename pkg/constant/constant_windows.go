@@ -31,7 +31,7 @@ const (
 	KubeletVolumePluginDir = "C:\\usr\\libexec\\k0s\\kubelet-plugins\\volume\\exec"
 
 	KineSocket                     = "kine\\kine.sock:2379"
-	KubePauseContainerImage        = "registry.k8s.io/pause"
+	KubePauseContainerImage        = "registry.cn-hangzhou.aliyuncs.com/google_containers/pause"
 	KubePauseContainerImageVersion = "3.9"
 	K0sConfigPathDefault           = "C:\\etc\\k0s\\k0s.yaml"
 	RuntimeConfigPathDefault       = RunDir + "\\k0s.yaml"

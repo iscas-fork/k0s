@@ -71,15 +71,13 @@ const (
 
 	/* Image Constants */
 
-	KonnectivityImage                  = "quay.io/k0sproject/apiserver-network-proxy-agent"
-	KonnectivityImageVersion           = "v0.1.4"
 	PushGatewayImage                   = "quay.io/k0sproject/pushgateway-ttl"
 	PushGatewayImageVersion            = "1.4.0-k0s.0"
 	MetricsImage                       = "registry.k8s.io/metrics-server/metrics-server"
 	MetricsImageVersion                = "v0.6.4"
-	KubeProxyImage                     = "quay.io/k0sproject/kube-proxy"
+	KubeProxyImage                     = "registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy"
 	KubeProxyImageVersion              = "v1.29.2"
-	CoreDNSImage                       = "quay.io/k0sproject/coredns"
+	CoreDNSImage                       = "registry.cn-hangzhou.aliyuncs.com/google_containers/coredns"
 	CoreDNSImageVersion                = "1.11.1"
 	EnvoyProxyImage                    = "quay.io/k0sproject/envoy-distroless"
 	EnvoyProxyImageVersion             = "v1.29.0"
@@ -91,8 +89,6 @@ const (
 	KubeRouterCNIImageVersion          = "v1.6.0-iptables1.8.9-1"
 	KubeRouterCNIInstallerImage        = "quay.io/k0sproject/cni-node"
 	KubeRouterCNIInstallerImageVersion = "1.3.0-k0s.0"
-	OpenEBSRepository                  = "https://openebs.github.io/charts"
-	OpenEBSVersion                     = "3.3.0"
 
 	/* Controller component names */
 
