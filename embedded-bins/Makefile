@@ -12,17 +12,19 @@ SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct || date -u +%s)
 
 bindir = staging/${TARGET_OS}/bin
 #posix_bins = runc kubelet containerd containerd-shim containerd-shim-runc-v1 containerd-shim-runc-v2 kube-apiserver kube-scheduler kube-controller-manager etcd kine konnectivity-server xtables-legacy-multi xtables-nft-multi
-posix_bins = runc kubelet containerd containerd-shim containerd-shim-runc-v1 containerd-shim-runc-v2 kube-apiserver kube-scheduler kube-controller-manager kine xtables-legacy-multi xtables-nft-multi
+posix_bins = kubelet kube-apiserver kube-scheduler kube-controller-manager kine xtables-legacy-multi xtables-nft-multi
 windows_bins = kubelet.exe kube-proxy.exe containerd.exe containerd-shim-runhcs-v1.exe
 buildmode = docker
 
 ifeq ($(TARGET_OS),windows)
 bins = ${windows_bins}
 # suffix .exe is added to the binaries in the original build pipelines
-containerd_bins = containerd containerd-shim-runhcs-v1
+#containerd_bins = containerd containerd-shim-runhcs-v1
+containerd_bins = 
 kubernetes_bins = kubelet kube-proxy
 else
-containerd_bins = containerd containerd-shim containerd-shim-runc-v1 containerd-shim-runc-v2
+#containerd_bins = containerd containerd-shim containerd-shim-runc-v1 containerd-shim-runc-v2
+containerd_bins = 
 kubernetes_bins = kubelet kube-apiserver kube-scheduler kube-controller-manager
 bins = ${posix_bins}
 endif
@@ -50,11 +52,11 @@ $(bindir):
 dockerfiles := $(wildcard */Dockerfile)
 images := $(patsubst %/Dockerfile,%,$(dockerfiles))
 
-containers: $(images:%=.container.%)
-docker-images: $(images:%=.docker-image.%.stamp)
+#containers: $(images:%=.container.%)
+#docker-images: $(images:%=.docker-image.%.stamp)
 
-$(bindir)/runc: .container.runc
-$(bindir)/containerd $(bindir)/containerd-shim $(bindir)/containerd-shim-runc-v1 $(bindir)/containerd-shim-runc-v2: .container.containerd
+#$(bindir)/runc: .container.runc
+#$(bindir)/containerd $(bindir)/containerd-shim $(bindir)/containerd-shim-runc-v1 $(bindir)/containerd-shim-runc-v2: .container.containerd
 #$(bindir)/etcd: .container.etcd
 $(bindir)/kine: .container.kine
 #$(bindir)/konnectivity-server: .container.konnectivity
@@ -63,7 +65,7 @@ $(bindir)/xtables-legacy-multi: .container.iptables
 $(bindir)/xtables-nft-multi: .container.iptables
 
 $(bindir)/kubelet.exe $(bindir)/kube-proxy.exe: .container.kubernetes.windows 
-$(bindir)/containerd.exe $(bindir)/containerd-shim-runhcs-v1.exe: .container.containerd.windows
+#$(bindir)/containerd.exe $(bindir)/containerd-shim-runhcs-v1.exe: .container.containerd.windows
 
 $(addprefix $(bindir)/, $(bins)): | $(bindir)
 	docker export $$(cat $<) | tar -C $(dir $(bindir)) -xv bin/$(notdir $@) && touch $@

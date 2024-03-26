@@ -48,8 +48,8 @@ BUILD_DATE_FMT = %Y-%m-%dT%H:%M:%SZ
 BUILD_DATE ?= $(shell date -u -d "@$(SOURCE_DATE_EPOCH)" "+$(BUILD_DATE_FMT)" 2>/dev/null || date -u -r "$(SOURCE_DATE_EPOCH)" "+$(BUILD_DATE_FMT)" 2>/dev/null || date -u "+$(BUILD_DATE_FMT)")
 
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.Version=$(VERSION)
-LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.RuncVersion=$(runc_version)
-LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.ContainerdVersion=$(containerd_version)
+#LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.RuncVersion=$(runc_version)
+#LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.ContainerdVersion=$(containerd_version)
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KubernetesVersion=$(kubernetes_version)
 LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.KineVersion=$(kine_version)
 #LD_FLAGS += -X github.com/iscas-fork/k0s/pkg/build.EtcdVersion=$(etcd_version)
@@ -61,10 +61,10 @@ LD_FLAGS += -X k8s.io/component-base/version.gitMajor=$(shell echo '$(kubernetes
 LD_FLAGS += -X k8s.io/component-base/version.gitMinor=$(shell echo '$(kubernetes_version)' | cut -d. -f2)
 LD_FLAGS += -X k8s.io/component-base/version.buildDate=$(BUILD_DATE)
 LD_FLAGS += -X k8s.io/component-base/version.gitCommit=not_available
-LD_FLAGS += -X github.com/containerd/containerd/version.Version=$(containerd_version)
+#LD_FLAGS += -X github.com/containerd/containerd/version.Version=$(containerd_version)
 ifeq ($(EMBEDDED_BINS_BUILDMODE), docker)
 ifeq ($(TARGET_OS),linux)
-LD_FLAGS += -X github.com/containerd/containerd/version.Revision=$(shell ./embedded-bins/staging/linux/bin/containerd --version | awk '{print $$4}')
+#LD_FLAGS += -X github.com/containerd/containerd/version.Revision=$(shell ./embedded-bins/staging/linux/bin/containerd --version | awk '{print $$4}')
 endif
 endif
 LD_FLAGS += $(BUILD_GO_LDFLAGS_EXTRA)
