@@ -25,7 +25,6 @@ import (
 	"github.com/iscas-fork/k0s/cmd/backup"
 	configcmd "github.com/iscas-fork/k0s/cmd/config"
 	"github.com/iscas-fork/k0s/cmd/controller"
-	"github.com/iscas-fork/k0s/cmd/ctr"
 	"github.com/iscas-fork/k0s/cmd/install"
 	"github.com/iscas-fork/k0s/cmd/kubeconfig"
 	"github.com/iscas-fork/k0s/cmd/kubectl"
@@ -81,7 +80,6 @@ func NewRootCmd() *cobra.Command {
 	cmd.AddCommand(api.NewAPICmd())
 	cmd.AddCommand(backup.NewBackupCmd())
 	cmd.AddCommand(controller.NewControllerCmd())
-	cmd.AddCommand(ctr.NewCtrCommand())
 	cmd.AddCommand(configcmd.NewConfigCmd())
 	cmd.AddCommand(install.NewInstallCmd())
 	cmd.AddCommand(kubeconfig.NewKubeConfigCmd())

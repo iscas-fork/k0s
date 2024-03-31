@@ -195,12 +195,8 @@ func (c *ContainerD) setupConfig() error {
 	if err := dir.Init(filepath.Dir(c.importsPath), 0755); err != nil {
 		return fmt.Errorf("can't create containerd config imports dir: %w", err)
 	}
-	containerDConfigurer := containerd.NewConfigurer(c.Profile.PauseImage, filepath.Join(c.importsPath, "*.toml"))
+	containerd.NewConfigurer(c.Profile.PauseImage, filepath.Join(c.importsPath, "*.toml"))
 
-	imports, err := containerDConfigurer.HandleImports()
-	if err != nil {
-		return fmt.Errorf("can't handle imports: %w", err)
-	}
 	output := bytes.NewBuffer([]byte{})
 	tw := templatewriter.TemplateWriter{
 		Name:     "containerdconfig",
@@ -208,7 +204,7 @@ func (c *ContainerD) setupConfig() error {
 		Data: struct {
 			Imports []string
 		}{
-			Imports: imports,
+			Imports: nil,
 		},
 	}
 	if err := tw.WriteToBuffer(output); err != nil {

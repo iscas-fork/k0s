@@ -18,58 +18,38 @@ package cleanup
 
 import (
 	"fmt"
-	"os/exec"
-
 	"github.com/iscas-fork/k0s/pkg/component/worker"
 	"github.com/iscas-fork/k0s/pkg/config"
 
-	"github.com/iscas-fork/k0s/pkg/container/runtime"
 	"github.com/sirupsen/logrus"
 )
 
 type Config struct {
-	cfgFile          string
-	containerd       *containerdConfig
-	containerRuntime runtime.ContainerRuntime
-	dataDir          string
-	k0sVars          *config.CfgVars
-	runDir           string
-}
-
-type containerdConfig struct {
-	binPath    string
-	cmd        *exec.Cmd
-	socketPath string
+	cfgFile string
+	dataDir string
+	k0sVars *config.CfgVars
+	runDir  string
 }
 
 func NewConfig(k0sVars *config.CfgVars, cfgFile string, criSocketPath string) (*Config, error) {
 	runDir := "/var/run" // https://github.com/iscas-fork/k0s/pull/591/commits/c3f932de85a0b209908ad39b817750efc4987395
 
 	var err error
-	var containerdCfg *containerdConfig
-	var runtimeType string
 
 	if criSocketPath == "" {
 		criSocketPath = fmt.Sprintf("unix://%s/isulad.sock", runDir)
-		containerdCfg = &containerdConfig{
-			binPath:    fmt.Sprintf("%s/%s", k0sVars.DataDir, "bin/containerd"),
-			socketPath: fmt.Sprintf("%s/isulad.sock", runDir),
-		}
-		runtimeType = "cri"
 	} else {
-		runtimeType, criSocketPath, err = worker.SplitRuntimeConfig(criSocketPath)
+		_, criSocketPath, err = worker.SplitRuntimeConfig(criSocketPath)
 		if err != nil {
 			return nil, err
 		}
 	}
 
 	return &Config{
-		cfgFile:          cfgFile,
-		containerd:       containerdCfg,
-		containerRuntime: runtime.NewContainerRuntime(runtimeType, criSocketPath),
-		dataDir:          k0sVars.DataDir,
-		runDir:           runDir,
-		k0sVars:          k0sVars,
+		cfgFile: cfgFile,
+		dataDir: k0sVars.DataDir,
+		runDir:  runDir,
+		k0sVars: k0sVars,
 	}, nil
 }
 

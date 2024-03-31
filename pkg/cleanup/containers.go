@@ -17,18 +17,11 @@ limitations under the License.
 package cleanup
 
 import (
-	"errors"
 	"fmt"
-	"github.com/avast/retry-go"
-	"github.com/iscas-fork/k0s/internal/pkg/file"
 	"github.com/sirupsen/logrus"
-	"io/fs"
 	"k8s.io/mount-utils"
 	"os"
-	"os/exec"
-	"path/filepath"
 	"strings"
-	"time"
 )
 
 type containers struct {
@@ -43,23 +36,11 @@ func (c *containers) Name() string {
 // Run removes all the pods and mounts and stops containers afterwards
 // Run starts containerd if custom CRI is not configured
 func (c *containers) Run() error {
-	if !c.isCustomCriUsed() {
-		if err := c.startContainerd(); err != nil {
-			if errors.Is(err, fs.ErrNotExist) || errors.Is(err, exec.ErrNotFound) {
-				logrus.Debugf("containerd binary not found. Skipping container cleanup")
-				return nil
-			}
-			return fmt.Errorf("failed to start containerd: %w", err)
-		}
-	}
 
 	if err := c.stopAllContainers(); err != nil {
 		logrus.Debugf("error stopping containers: %v", err)
 	}
 
-	if !c.isCustomCriUsed() {
-		c.stopContainerd()
-	}
 	return nil
 }
 
@@ -91,99 +72,9 @@ func removeMount(path string) error {
 }
 
 func (c *containers) isCustomCriUsed() bool {
-	return c.Config.containerd == nil
+	return true
 }
 
-func (c *containers) startContainerd() error {
-	logrus.Debugf("starting containerd")
-	args := []string{
-		fmt.Sprintf("--root=%s", filepath.Join(c.Config.dataDir, "containerd")),
-		fmt.Sprintf("--state=%s", filepath.Join(c.Config.runDir, "containerd")),
-		fmt.Sprintf("--address=%s", c.Config.containerd.socketPath),
-	}
-	if file.Exists("/etc/k0s/containerd.toml") {
-		args = append(args, "--config=/etc/k0s/containerd.toml")
-	}
-	cmd := exec.Command(c.Config.containerd.binPath, args...)
-	if err := cmd.Start(); err != nil {
-		return err
-	}
-
-	c.Config.containerd.cmd = cmd
-	logrus.Debugf("started containerd successfully")
-
-	return nil
-}
-
-func (c *containers) stopContainerd() {
-	logrus.Debug("attempting to stop containerd")
-	logrus.Debugf("found containerd pid: %v", c.Config.containerd.cmd.Process.Pid)
-	if err := c.Config.containerd.cmd.Process.Signal(os.Interrupt); err != nil {
-		logrus.Errorf("failed to kill containerd: %v", err)
-	}
-	// if process, didn't exit, wait a few seconds and send SIGKILL
-	if c.Config.containerd.cmd.ProcessState.ExitCode() != -1 {
-		time.Sleep(5 * time.Second)
-
-		if err := c.Config.containerd.cmd.Process.Kill(); err != nil {
-			logrus.Errorf("failed to send SIGKILL to containerd: %v", err)
-		}
-	}
-	logrus.Debug("successfully stopped containerd")
-}
 func (c *containers) stopAllContainers() error {
-	var msg []error
-	logrus.Debugf("trying to list all pods")
-
-	var pods []string
-	err := retry.Do(func() error {
-		var err error
-		pods, err = c.Config.containerRuntime.ListContainers()
-		if err != nil {
-			return err
-		}
-		return nil
-	})
-	if err != nil {
-		logrus.Debugf("failed at listing pods %v", err)
-		return err
-	}
-	if len(pods) > 0 {
-		if err := removeMount("kubelet/pods"); err != nil {
-			msg = append(msg, err)
-		}
-		if err := removeMount("run/netns"); err != nil {
-			msg = append(msg, err)
-		}
-	}
-
-	for _, pod := range pods {
-		logrus.Debugf("stopping container: %v", pod)
-		err := c.Config.containerRuntime.StopContainer(pod)
-		if err != nil {
-			if strings.Contains(err.Error(), "443: connect: connection refused") {
-				// on a single node instance, we will see "connection refused" error. this is to be expected
-				// since we're deleting the API pod itself. so we're ignoring this error
-				logrus.Debugf("ignoring container stop err: %v", err.Error())
-			} else {
-				fmtError := fmt.Errorf("failed to stop running pod %v: err: %v", pod, err)
-				logrus.Debug(fmtError)
-				msg = append(msg, fmtError)
-			}
-		}
-		err = c.Config.containerRuntime.RemoveContainer(pod)
-		if err != nil {
-			msg = append(msg, fmt.Errorf("failed to remove pod %v: err: %v", pod, err))
-		}
-	}
-
-	pods, err = c.Config.containerRuntime.ListContainers()
-	if err == nil && len(pods) == 0 {
-		logrus.Info("successfully removed k0s containers!")
-	}
-
-	if len(msg) > 0 {
-		return fmt.Errorf("errors occurred while removing pods: %v", msg)
-	}
 	return nil
 }

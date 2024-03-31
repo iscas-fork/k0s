@@ -18,14 +18,6 @@ package worker
 
 import (
 	"context"
-	"fmt"
-	"os"
-	"path/filepath"
-	"time"
-
-	"github.com/avast/retry-go"
-	"github.com/containerd/containerd"
-	"github.com/containerd/containerd/platforms"
 	"github.com/iscas-fork/k0s/internal/pkg/dir"
 	"github.com/iscas-fork/k0s/pkg/component/manager"
 	"github.com/iscas-fork/k0s/pkg/component/prober"
@@ -57,72 +49,6 @@ func (a *OCIBundleReconciler) Init(_ context.Context) error {
 }
 
 func (a *OCIBundleReconciler) Start(ctx context.Context) error {
-	files, err := os.ReadDir(a.k0sVars.OCIBundleDir)
-	if err != nil {
-		a.Emit("can't read bundles directory")
-		return fmt.Errorf("can't read bundles directory")
-	}
-	a.EmitWithPayload("importing OCI bundles", files)
-	if len(files) == 0 {
-		return nil
-	}
-	var client *containerd.Client
-	sock := filepath.Join(a.k0sVars.RunDir, "isulad.sock")
-	err = retry.Do(func() error {
-		client, err = containerd.New(sock, containerd.WithDefaultNamespace("k8s.io"), containerd.WithDefaultPlatform(platforms.OnlyStrict(platforms.DefaultSpec())))
-		if err != nil {
-			a.log.WithError(err).Errorf("can't connect to containerd socket %s", sock)
-			return err
-		}
-		_, err := client.ListImages(ctx)
-		if err != nil {
-			a.log.WithError(err).Errorf("can't use containerd client")
-			return err
-		}
-		return nil
-	}, retry.Context(ctx), retry.Delay(time.Second*5))
-	if err != nil {
-		a.EmitWithPayload("can't connect to containerd socket", map[string]interface{}{"socket": sock, "error": err})
-		return fmt.Errorf("can't connect to containerd socket %s: %v", sock, err)
-	}
-	defer client.Close()
-
-	for _, file := range files {
-		if err := a.unpackBundle(ctx, client, a.k0sVars.OCIBundleDir+"/"+file.Name()); err != nil {
-			a.EmitWithPayload("unpacking OCI bundle error", map[string]interface{}{"file": file.Name(), "error": err})
-			a.log.WithError(err).Errorf("can't unpack bundle %s", file.Name())
-			return fmt.Errorf("can't unpack bundle %s: %w", file.Name(), err)
-		}
-		a.EmitWithPayload("unpacked OCI bundle", file.Name())
-	}
-	a.Emit("finished importing OCI bundle")
-	return nil
-}
-
-func (a OCIBundleReconciler) unpackBundle(ctx context.Context, client *containerd.Client, bundlePath string) error {
-	r, err := os.Open(bundlePath)
-	if err != nil {
-		return fmt.Errorf("can't open bundle file %s: %v", bundlePath, err)
-	}
-	defer r.Close()
-	images, err := client.Import(ctx, r)
-	if err != nil {
-		return fmt.Errorf("can't import bundle: %v", err)
-	}
-	is := client.ImageService()
-	for _, i := range images {
-		a.log.Infof("Imported image %s", i.Name)
-		// Update labels for each image to include io.cri-containerd.pinned=pinned
-		fieldpaths := []string{"labels.io.cri-containerd.pinned"}
-		if i.Labels == nil {
-			i.Labels = make(map[string]string)
-		}
-		i.Labels["io.cri-containerd.pinned"] = "pinned"
-		_, err := is.Update(ctx, i, fieldpaths...)
-		if err != nil {
-			return fmt.Errorf("failed to add io.cri-containerd.pinned label for image %s: %w", i.Name, err)
-		}
-	}
 	return nil
 }
 

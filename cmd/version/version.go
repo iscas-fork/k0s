@@ -39,11 +39,8 @@ func NewVersionCmd() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			info := versionInfo{
 				Version:    build.Version,
-				Runc:       build.RuncVersion,
-				Containerd: build.ContainerdVersion,
 				Kubernetes: build.KubernetesVersion,
 				Kine:       build.KineVersion,
-				Etcd:       build.EtcdVersion,
 			}
 
 			info.Print(cmd.OutOrStdout())
@@ -58,21 +55,15 @@ func NewVersionCmd() *cobra.Command {
 
 type versionInfo struct {
 	Version    string `json:"k0s,omitempty"`
-	Runc       string `json:"runc,omitempty"`
-	Containerd string `json:"containerd,omitempty"`
 	Kubernetes string `json:"kubernetes,omitempty"`
 	Kine       string `json:"kine,omitempty"`
-	Etcd       string `json:"etcd,omitempty"`
 }
 
 func (v versionInfo) Print(w io.Writer) {
 	if all {
 		fmt.Fprintln(w, "k0s :", v.Version)
-		fmt.Fprintln(w, "runc :", v.Runc)
-		fmt.Fprintln(w, "containerd :", v.Containerd)
 		fmt.Fprintln(w, "kubernetes :", v.Kubernetes)
 		fmt.Fprintln(w, "kine :", v.Kine)
-		fmt.Fprintln(w, "etcd :", v.Etcd)
 	} else if isJsn {
 		jsn, _ := json.MarshalIndent(v, "", "   ")
 		fmt.Fprintln(w, string(jsn))

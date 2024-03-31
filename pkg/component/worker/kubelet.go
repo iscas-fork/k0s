@@ -147,7 +147,7 @@ func (k *Kubelet) Start(ctx context.Context) error {
 		ClientCAFile:       filepath.Join(k.K0sVars.CertRootDir, "ca.crt"),
 		VolumePluginDir:    k.K0sVars.KubeletVolumePluginDir,
 		KubeReservedCgroup: "system.slice",
-		KubeletCgroups:     "/system.slice/containerd.service",
+		KubeletCgroups:     "/system.slice/isulad.service",
 		StaticPodURL:       staticPodURL,
 	}
 	if runtime.GOOS == "windows" {
@@ -162,7 +162,7 @@ func (k *Kubelet) Start(ctx context.Context) error {
 		"--config":          kubeletConfigPath,
 		"--kubeconfig":      k.Kubeconfig,
 		"--v":               k.LogLevel,
-		"--runtime-cgroups": "/system.slice/containerd.service",
+		"--runtime-cgroups": "/system.slice/isulad.service",
 		"--cert-dir":        filepath.Join(k.dataDir, "pki"),
 	}
 
