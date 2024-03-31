@@ -17,7 +17,7 @@ limitations under the License.
 package build
 
 // Version gets overridden at build time using -X main.Version=$VERSION
-var Version string
+var Version string = "iscas-v1.29.2"
 
-var KubernetesVersion string
-var KineVersion string
+var KubernetesVersion string = "iscas-v1.29.2"
+var KineVersion string = "iscas-v1.29.2"
